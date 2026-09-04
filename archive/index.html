@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f1e8">
+  <title>Weekend OTT Archive</title>
+  <style>
+    :root{
+      --paper:#f5f1e8;
+      --ink:#171717;
+      --muted:#6b675f;
+      --line:#cfc8bb;
+      --red:#b52a2a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+    .page{
+      width:min(820px,100%);
+      margin:0 auto;
+      padding:0 18px 56px;
+    }
+    header{
+      padding:18px 0 12px;
+      border-bottom:3px solid var(--ink);
+    }
+    .brand{
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:700;
+      font-size:1.55rem;
+      letter-spacing:-.035em;
+    }
+    .back{
+      display:inline-block;
+      margin-top:10px;
+      color:var(--muted);
+      text-decoration:none;
+      font-size:.82rem;
+    }
+    .hero{
+      padding:34px 0 26px;
+      border-bottom:1px solid var(--line);
+    }
+    .kicker{
+      color:var(--red);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      font-size:.73rem;
+      margin-bottom:8px;
+    }
+    h1{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(2.3rem,9vw,4.5rem);
+      line-height:.97;
+      letter-spacing:-.05em;
+      margin:0;
+    }
+    .dek{
+      color:#45413b;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1rem;
+      margin:14px 0 0;
+    }
+    .month{
+      margin-top:30px;
+    }
+    .month h2{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.5rem;
+      margin:0;
+      padding-bottom:8px;
+      border-bottom:2px solid var(--ink);
+    }
+    .edition{
+      display:grid;
+      grid-template-columns:110px minmax(0,1fr) auto;
+      gap:14px;
+      align-items:start;
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .date{
+      color:var(--muted);
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .title{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.1rem;
+      font-weight:700;
+    }
+    .summary{
+      color:#4d4841;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:.92rem;
+      margin-top:5px;
+    }
+    .open{
+      color:var(--ink);
+      text-decoration:none;
+      font-weight:800;
+      font-size:.78rem;
+      white-space:nowrap;
+      border-bottom:1px solid var(--ink);
+    }
+    @media(max-width:560px){
+      .edition{
+        grid-template-columns:1fr auto;
+      }
+      .date{
+        grid-column:1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">Weekend OTT</div>
+      <a class="back" href="/">← Current weekend</a>
+    </header>
+
+    <section class="hero">
+      <div class="kicker">Archive</div>
+      <h1>Past weekend guides.</h1>
+      <p class="dek">Every edition stays available here, even after the homepage moves on to the next weekend.</p>
+    </section>
+
+    <section class="month">
+      <h2>September 2026</h2>
+
+      <article class="edition">
+        <div class="date">Sep 4–6</div>
+        <div>
+          <div class="title">Weekend OTT — Sep 4–6, 2026</div>
+          <div class="summary">The Gentlemen S2 · G.D.N. · Mayday · Indian + English OTT releases</div>
+        </div>
+        <a class="open" href="/archive/2026-09-04/">Open →</a>
+      </article>
+    </section>
+  </div>
+</body>
+</html>
