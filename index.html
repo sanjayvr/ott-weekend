@@ -5,453 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f1e8">
   <title>Weekend OTT — Sep 4–6, 2026</title>
-  <meta name="description" content="The best new OTT releases this weekend across India and the U.S.">
+  <meta name="description" content="A verified weekend guide to new Indian and U.S./English OTT movies, shows and new seasons.">
+
   <style>
     :root{
-      --paper:#f5f1e8;
-      --ink:#171717;
-      --muted:#6b675f;
-      --line:#cfc8bb;
-      --soft:#e8e1d5;
-      --red:#b52a2a;
-      --green:#236b4b;
-      --amber:#8a5a00;
-      --blue:#275a8a;
+      --paper:#f5f1e8; --ink:#171717; --muted:#6b675f; --line:#cfc8bb;
+      --soft:#e8e1d5; --red:#b52a2a; --green:#236b4b; --amber:#8a5a00; --blue:#275a8a;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--paper);
-      color:var(--ink);
-      font-family:Arial,Helvetica,sans-serif;
-      line-height:1.45;
-      -webkit-font-smoothing:antialiased;
-    }
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
     button{font:inherit}
-    .page{
-      width:min(920px,100%);
-      margin:0 auto;
-      padding:0 18px 56px;
-    }
-
-    .masthead{
-      padding:18px 0 11px;
-      border-bottom:3px solid var(--ink);
-      background:var(--paper);
-    }
-    .masthead-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .brand{
-      font-family:Georgia,"Times New Roman",serif;
-      font-weight:700;
-      font-size:1.55rem;
-      letter-spacing:-.035em;
-      white-space:nowrap;
-    }
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:7px;
-      flex:0 0 auto;
-    }
-    .nav-link,
-    .share{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:40px;
-      padding:8px 11px;
-      border:1px solid var(--line);
-      border-radius:3px;
-      background:transparent;
-      color:var(--ink);
-      text-decoration:none;
-      font-weight:700;
-      font-size:.79rem;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .nav-link.active{
-      background:var(--ink);
-      border-color:var(--ink);
-      color:var(--paper);
-    }
-    .share{
-      border-color:var(--ink);
-    }
-    .nav-link:focus-visible,
-    .share:focus-visible{
-      outline:2px solid var(--blue);
-      outline-offset:2px;
-    }
-    @media(max-width:480px){
-      .masthead-row{flex-wrap:wrap}
-      .header-actions{
-        width:100%;
-        justify-content:flex-start;
-      }
-    }
-    .edition{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin-top:9px;
-      color:var(--muted);
-      font-size:.74rem;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .hero{
-      padding:31px 0 25px;
-    }
-    .kicker{
-      color:var(--red);
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.11em;
-      font-size:.73rem;
-      margin-bottom:8px;
-    }
-    h1{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:clamp(2.3rem,9vw,4.7rem);
-      line-height:.97;
-      letter-spacing:-.052em;
-      margin:0;
-      max-width:780px;
-    }
-    .dek{
-      max-width:690px;
-      color:#45413b;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1.02rem;
-      margin:15px 0 0;
-    }
-
-    .tabs-wrap{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(245,241,232,.97);
-      backdrop-filter:blur(10px);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      margin:0 -18px;
-      padding:0 18px;
-    }
-    .tabs{
-      display:flex;
-      gap:0;
-      overflow-x:auto;
-      scrollbar-width:none;
-      -webkit-overflow-scrolling:touch;
-    }
+    .page{width:min(920px,100%);margin:0 auto;padding:0 18px 56px}
+    .masthead{padding:18px 0 11px;border-bottom:3px solid var(--ink);background:var(--paper)}
+    .masthead-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:1.55rem;letter-spacing:-.035em;white-space:nowrap}
+    .header-actions{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+    .nav-link,.share{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 11px;border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--ink);text-decoration:none;font-weight:700;font-size:.79rem;cursor:pointer;white-space:nowrap}
+    .nav-link.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+    .share{border-color:var(--ink)}
+    .nav-link:focus-visible,.share:focus-visible,.tab:focus-visible,.segment button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+    .edition{display:flex;justify-content:space-between;gap:12px;margin-top:9px;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.075em}
+    .hero{padding:31px 0 25px}
+    .kicker{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.11em;font-size:.73rem;margin-bottom:8px}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.3rem,9vw,4.7rem);line-height:.97;letter-spacing:-.052em;margin:0;max-width:780px}
+    .dek{max-width:710px;color:#45413b;font-family:Georgia,"Times New Roman",serif;font-size:1.02rem;margin:15px 0 0}
+    .coverage{margin-top:13px;color:var(--muted);font-size:.79rem}
+    .tabs-wrap{position:sticky;top:0;z-index:20;background:rgba(245,241,232,.97);backdrop-filter:blur(10px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -18px;padding:0 18px}
+    .tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
     .tabs::-webkit-scrollbar{display:none}
-    .tab{
-      flex:0 0 auto;
-      border:0;
-      border-bottom:3px solid transparent;
-      background:transparent;
-      color:var(--muted);
-      min-height:48px;
-      padding:0 15px;
-      font-weight:800;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:.065em;
-      cursor:pointer;
-      white-space:nowrap;
-    }
+    .tab{flex:0 0 auto;border:0;border-bottom:3px solid transparent;background:transparent;color:var(--muted);min-height:48px;padding:0 15px;font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.065em;cursor:pointer;white-space:nowrap}
     .tab:first-child{padding-left:2px}
-    .tab[aria-selected="true"]{
-      color:var(--ink);
-      border-bottom-color:var(--red);
-    }
-    .tab:focus-visible,.share:focus-visible{
-      outline:2px solid var(--blue);
-      outline-offset:2px;
-    }
-
-
-
-    .release[hidden],
-    .top-pick[hidden],
-    .filter-bar[hidden],
-    .filtered-empty[hidden]{
-      display:none !important;
-    }
-
-    .filter-bar{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:9px 0 10px;
-      border-top:1px solid var(--line);
-    }
-    .filter-label{
-      flex:0 0 auto;
-      color:var(--muted);
-      font-size:.72rem;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.075em;
-    }
-    .segment{
-      display:inline-flex;
-      align-items:center;
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:3px;
-      background:rgba(255,255,255,.18);
-    }
-    .segment button{
-      border:0;
-      background:transparent;
-      color:var(--muted);
-      min-height:34px;
-      padding:6px 13px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:.78rem;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .segment button[aria-pressed="true"]{
-      background:var(--ink);
-      color:var(--paper);
-    }
-    .segment button:focus-visible{
-      outline:2px solid var(--blue);
-      outline-offset:2px;
-    }
-    .filtered-empty{
-      padding:26px 0 8px;
-      color:var(--muted);
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1rem;
-    }
-
+    .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--red)}
+    .release[hidden],.top-pick[hidden],.filter-bar[hidden],.filtered-empty[hidden]{display:none!important}
+    .filter-bar{display:flex;align-items:center;gap:10px;padding:9px 0 10px;border-top:1px solid var(--line)}
+    .filter-label{flex:0 0 auto;color:var(--muted);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.075em}
+    .segment{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:3px;background:rgba(255,255,255,.18)}
+    .segment button{border:0;background:transparent;color:var(--muted);min-height:34px;padding:6px 13px;border-radius:999px;font-weight:800;font-size:.78rem;cursor:pointer;white-space:nowrap}
+    .segment button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
     .panel{padding-top:24px}
     .panel[hidden]{display:none}
-
-    .panel-head{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:12px;
-      border-bottom:2px solid var(--ink);
-      padding-bottom:8px;
-      margin-bottom:4px;
-    }
-    h2{
-      margin:0;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1.65rem;
-      letter-spacing:-.025em;
-    }
-    .panel-note{
-      color:var(--muted);
-      font-size:.76rem;
-      white-space:nowrap;
-    }
-
-    .top-pick{
-      display:grid;
-      grid-template-columns:42px minmax(0,1fr);
-      gap:12px;
-      padding:19px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .rank{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:2.2rem;
-      line-height:1;
-      color:var(--red);
-    }
-    .pick-title,.release-title{
-      font-family:Georgia,"Times New Roman",serif;
-      font-weight:700;
-      line-height:1.12;
-    }
-    .pick-title{font-size:1.36rem}
-    .release-title{font-size:1.18rem}
-    .meta,.release-meta,.rating-line{
-      color:var(--muted);
-      font-size:.82rem;
-    }
-    .meta,.release-meta{margin-top:4px}
-    .rating-line{margin-top:7px}
-    .ratings-grid{
-      display:flex;
-      flex-wrap:wrap;
-      gap:7px 14px;
-      margin-top:8px;
-      color:var(--muted);
-      font-size:.79rem;
-    }
-    .score{
-      display:inline-flex;
-      gap:5px;
-      align-items:baseline;
-      white-space:nowrap;
-    }
-    .score-label{
-      color:var(--muted);
-      font-weight:700;
-    }
-    .score-value{
-      color:var(--ink);
-      font-weight:800;
-    }
-    .rating{color:var(--ink);font-weight:700}
+    .panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:4px}
+    h2{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:1.65rem;letter-spacing:-.025em}
+    .panel-note{color:var(--muted);font-size:.76rem;white-space:nowrap}
+    .legend{margin:12px 0 2px;color:var(--muted);font-size:.76rem;line-height:1.45}
+    .top-pick{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:19px 0;border-bottom:1px solid var(--line)}
+    .rank{font-family:Georgia,"Times New Roman",serif;font-size:2.2rem;line-height:1;color:var(--red)}
+    .pick-title,.release-title{font-family:Georgia,"Times New Roman",serif;font-weight:700;line-height:1.12}
+    .pick-title{font-size:1.36rem}.release-title{font-size:1.18rem}
+    .meta,.release-meta{color:var(--muted);font-size:.82rem;margin-top:4px}
     .genre{color:#38342f;font-weight:700}
-    .summary,.release-summary{
-      font-family:Georgia,"Times New Roman",serif;
-      color:#3f3b35;
-    }
+    .ratings-grid{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:8px;color:var(--muted);font-size:.79rem}
+    .score{display:inline-flex;gap:5px;align-items:baseline;white-space:nowrap}
+    .score-label{color:var(--muted);font-weight:700}.score-value{color:var(--ink);font-weight:800}
+    .summary,.release-summary{font-family:Georgia,"Times New Roman",serif;color:#3f3b35}
     .summary{margin-top:8px;font-size:.97rem}
-    .release{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      gap:8px 16px;
-      padding:18px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .release-summary{
-      grid-column:1 / -1;
-      font-size:.94rem;
-      margin-top:0;
-      max-width:780px;
-    }
-    .verdict{
-      align-self:start;
-      justify-self:end;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:34px;
-      min-width:118px;
-      padding:7px 10px;
-      border:1px solid currentColor;
-      border-radius:999px;
-      font-weight:800;
-      font-size:.76rem;
-      letter-spacing:.02em;
-      line-height:1.05;
-      text-align:center;
-      white-space:nowrap;
-    }
-    .watch{
-      color:var(--green);
-      background:rgba(35,107,75,.07);
-    }
-    .try{
-      color:var(--blue);
-      background:rgba(39,90,138,.07);
-    }
-    .maybe{
-      color:var(--amber);
-      background:rgba(138,90,0,.07);
-    }
-    .new{
-      color:#5d5a54;
-      background:rgba(93,90,84,.06);
-    }
-    .wait{
-      color:#9a5a00;
-      background:rgba(154,90,0,.07);
-    }
-    .skip{
-      color:var(--red);
-      background:rgba(181,42,42,.06);
-    }
-
-    .quick-list{
-      margin-top:7px;
-      border-top:1px solid var(--line);
-    }
-    .quick-row{
-      display:grid;
-      grid-template-columns:105px minmax(0,1fr);
-      gap:14px;
-      padding:14px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .quick-label{
-      color:var(--muted);
-      font-size:.73rem;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.075em;
-    }
-    .quick-value{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1rem;
-    }
-
-    .note{
-      margin-top:28px;
-      padding-top:15px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:.74rem;
-      line-height:1.5;
-    }
-    .toast{
-      position:fixed;
-      left:50%;
-      bottom:22px;
-      transform:translateX(-50%) translateY(20px);
-      background:var(--ink);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:4px;
-      font-size:.8rem;
-      opacity:0;
-      pointer-events:none;
-      transition:.2s ease;
-      z-index:40;
-    }
+    .release{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .release-summary{grid-column:1/-1;font-size:.94rem;max-width:780px}
+    .verdict{align-self:start;justify-self:end;display:inline-flex;align-items:center;justify-content:center;min-height:34px;min-width:118px;padding:7px 10px;border:1px solid currentColor;border-radius:999px;font-weight:800;font-size:.76rem;letter-spacing:.02em;line-height:1.05;text-align:center;white-space:nowrap}
+    .watch{color:var(--green);background:rgba(35,107,75,.07)}
+    .try{color:var(--blue);background:rgba(39,90,138,.07)}
+    .maybe{color:var(--amber);background:rgba(138,90,0,.07)}
+    .new{color:#5d5a54;background:rgba(93,90,84,.06)}
+    .wait{color:#9a5a00;background:rgba(154,90,0,.07)}
+    .skip{color:var(--red);background:rgba(181,42,42,.06)}
+    .filtered-empty{padding:26px 0 8px;color:var(--muted);font-family:Georgia,"Times New Roman",serif;font-size:1rem}
+    .quick-list{margin-top:7px;border-top:1px solid var(--line)}
+    .quick-row{display:grid;grid-template-columns:125px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .quick-label{color:var(--muted);font-size:.73rem;font-weight:800;text-transform:uppercase;letter-spacing:.075em}
+    .quick-value{font-family:Georgia,"Times New Roman",serif;font-size:1rem}
+    .note{margin-top:28px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:.74rem;line-height:1.5}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 14px;border-radius:4px;font-size:.8rem;opacity:0;pointer-events:none;transition:.2s ease;z-index:40}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-
-    @media(max-width:420px){
-      .release{
-        grid-template-columns:minmax(0,1fr);
-      }
-      .verdict{
-        justify-self:start;
-        grid-row:2;
-        min-width:0;
-      }
-      .release-summary{
-        grid-row:3;
-      }
+    @media(max-width:480px){
+      .masthead-row{flex-wrap:wrap}.header-actions{width:100%;justify-content:flex-start}
+      .edition{flex-direction:column;gap:3px}
     }
-
+    @media(max-width:420px){
+      .release{grid-template-columns:minmax(0,1fr)}
+      .verdict{justify-self:start;grid-row:2;min-width:0}.release-summary{grid-row:3}
+    }
     @media(min-width:760px){
       .page{padding-left:26px;padding-right:26px}
       .tabs-wrap{margin-left:-26px;margin-right:-26px;padding-left:26px;padding-right:26px}
-      .tab{padding-left:19px;padding-right:19px}
-      .tab:first-child{padding-left:2px}
-      .release{grid-template-columns:minmax(0,1fr) 90px}
+      .tab{padding-left:19px;padding-right:19px}.tab:first-child{padding-left:2px}
+      .release{grid-template-columns:minmax(0,1fr) 145px}
       .quick-list{display:grid;grid-template-columns:1fr 1fr}
       .quick-row:nth-child(odd){padding-right:24px}
       .quick-row:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
     }
   </style>
+
 </head>
 <body>
   <div class="page">
     <header class="masthead">
       <div class="masthead-row">
         <div class="brand">Weekend OTT</div>
+
         <div class="header-actions" aria-label="Site navigation">
           <a class="nav-link active" href="/">Latest</a>
           <a class="nav-link" href="/archive/">Archive</a>
@@ -459,22 +110,23 @@
         </div>
       </div>
       <div class="edition">
-        <span>Sep 4–6, 2026</span>
-        <span>India + U.S. · OTT only</span>
+        <span>Weekend: Sep 4–6, 2026</span>
+        <span>Releases tracked: Sep 1–6 · OTT only</span>
       </div>
     </header>
 
     <section class="hero">
       <div class="kicker">This weekend</div>
       <h1>What’s actually worth streaming.</h1>
-      <p class="dek">New movies, series and seasons that landed on OTT this week — with ratings, genres and a one-line premise so you can decide fast.</p>
+      <p class="dek">A comprehensive pass across Indian regional and U.S./English streaming releases — then ratings and recommendations layered on top.</p>
+      <div class="coverage"><strong>38 verified drops:</strong> 20 Indian · 18 U.S./English · scheduled Sunday premieres included.</div>
     </section>
 
     <nav class="tabs-wrap" aria-label="Weekend OTT sections">
       <div class="tabs" role="tablist">
         <button class="tab" type="button" role="tab" id="tab-top" aria-controls="panel-top" aria-selected="true">Top Picks</button>
         <button class="tab" type="button" role="tab" id="tab-india" aria-controls="panel-india" aria-selected="false">Indian</button>
-        <button class="tab" type="button" role="tab" id="tab-us" aria-controls="panel-us" aria-selected="false">English</button>
+        <button class="tab" type="button" role="tab" id="tab-us" aria-controls="panel-us" aria-selected="false">U.S. / English</button>
         <button class="tab" type="button" role="tab" id="tab-tonight" aria-controls="panel-tonight" aria-selected="false">Tonight</button>
       </div>
       <div class="filter-bar" id="filterBar" aria-label="Filter releases by type" hidden>
@@ -489,203 +141,615 @@
 
     <main>
       <section class="panel" id="panel-top" role="tabpanel" aria-labelledby="tab-top">
-        <div class="panel-head">
-          <h2>Top 3</h2>
-          <div class="panel-note">Weekend picks</div>
-        </div>
-
+        <div class="panel-head"><h2>Top 3</h2><div class="panel-note">Weekend picks</div></div>
+        
         <article class="top-pick" data-kind="show">
           <div class="rank">1</div>
           <div>
-            <div class="pick-title">The Gentlemen — Season 2</div><div class="meta">Netflix · English · Crime comedy / drama</div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">89%</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div><div class="summary">Eddie and Susie expand their criminal empire as new enemies and bigger power plays close in.</div>
+            <div class="pick-title">The Gentlemen — Season 2</div>
+            <div class="meta">Netflix · English · Crime comedy / drama</div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">89% · early</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+            <div class="summary">Eddie and Susie push their criminal operation into a more dangerous phase as new rivals and power struggles close in.</div>
           </div>
         </article>
-
         <article class="top-pick" data-kind="movie">
           <div class="rank">2</div>
           <div>
-            <div class="pick-title">G.D.N.</div><div class="meta">Netflix · Tamil + dubbed · Biographical drama</div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">8.5 · 1.2K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div><div class="summary">Madhavan stars as inventor G.D. Naidu in a story about innovation, ambition and conflict.</div>
+            <div class="pick-title">G.D.N.</div>
+            <div class="meta">Netflix · Tamil + dubbed · Biographical drama</div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">8.5 · 1.2K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+            <div class="summary">R. Madhavan stars as inventor and industrialist G.D. Naidu in a biographical drama about ambition, innovation and conflict.</div>
           </div>
         </article>
-
         <article class="top-pick" data-kind="movie">
           <div class="rank">3</div>
           <div>
-            <div class="pick-title">Mayday</div><div class="meta">Apple TV+ · English · Cold War action comedy</div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">83%</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div><div class="summary">A downed U.S. pilot and a disillusioned ex-KGB agent team up in a fast retro adventure.</div>
+            <div class="pick-title">Mayday</div>
+            <div class="meta">Apple TV · English · Cold War action comedy</div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">83% · 54 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+            <div class="summary">A U.S. Navy pilot crashes behind Soviet lines in 1987 and forms an unlikely partnership with an eccentric former KGB agent.</div>
           </div>
         </article>
-
-        <p class="note"><strong>Ratings:</strong> every title uses the same slots: IMDb user rating, Rotten Tomatoes Critics, and Rotten Tomatoes Audience. A dash means that score is not available yet. IMDb vote counts are shown when known because sample size matters.</p>
+        <p class="note"><strong>Ratings format:</strong> every title uses IMDb, Rotten Tomatoes Critics and Rotten Tomatoes Audience. A dash means no reliable aggregate is available yet. Small or early samples are labeled rather than treated as mature scores.</p>
       </section>
 
       <section class="panel" id="panel-india" role="tabpanel" aria-labelledby="tab-india" hidden>
-        <div class="panel-head">
-          <h2>Indian releases</h2>
-          <div class="panel-note">10 this week</div>
-        </div>
-
+        <div class="panel-head"><h2>Indian releases</h2><div class="panel-note">20 verified</div></div>
         <div class="filtered-empty" hidden>No releases match this filter.</div>
-
-        <div class="note" style="margin-top:12px;padding-top:0;border-top:0">
-          <strong>Recommendation labels:</strong>
-          Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = depends on taste ·
-          Too New to Rate = not enough ratings yet · Wait for Reviews = early feedback is still unclear.
-        </div>
-
+        <div class="legend"><strong>Labels:</strong> Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = taste-dependent · Too New to Rate = not enough data · Wait for Reviews = early feedback unclear.</div>
+        
         <article class="release" data-kind="movie">
-          <div><div class="release-title">G.D.N.</div><div class="release-meta">Netflix · Sep 4 · Tamil + dubbed · <span class="genre">Biographical drama</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">8.5 · 1.2K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">G.D.N.</div>
+            <div class="release-meta">Netflix · Sep 4 · Tamil + dubbed · <span class="genre">Biographical drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">8.5 · 1.2K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict watch">Recommended</div>
-          <div class="release-summary">R. Madhavan plays inventor G.D. Naidu, tracing his innovations, industrial rise and clashes with authorities.</div>
+          <div class="release-summary">R. Madhavan stars as inventor and industrialist G.D. Naidu in a biographical drama about ambition, innovation and conflict.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">DC</div><div class="release-meta">Sun NXT · Sep 4 · Tamil + dubbed · <span class="genre">Romantic action thriller</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">8.3 · 5.1K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">DC</div>
+            <div class="release-meta">Sun NXT · Sep 4 · Tamil + dubbed · <span class="genre">Romantic action thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">8.3 · 5.1K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict watch">Recommended</div>
-          <div class="release-summary">A troubled man faces a murder investigation, stolen weapons and criminal gangs while fighting for survival and revenge.</div>
+          <div class="release-summary">A troubled man is pulled into murder, stolen weapons and gang violence while fighting for survival and revenge.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Dhamaal 4</div><div class="release-meta">Netflix · Sep 4 · Hindi · <span class="genre">Action comedy / slapstick</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">8.1 · 36K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Dhamaal 4</div>
+            <div class="release-meta">Netflix · Sep 4 · Hindi · <span class="genre">Action comedy / slapstick</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">8.1 · 36K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict watch">Recommended</div>
-          <div class="release-summary">A bumbling thief and an eccentric group race through chaos and mishaps while hunting for hidden treasure.</div>
+          <div class="release-summary">The chaotic ensemble returns for another broad comedy built around greed, mishaps and an escalating treasure hunt.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Korean Kanakaraju</div><div class="release-meta">Netflix · Sep 4 · Telugu + dubbed · <span class="genre">Horror comedy</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">7.7 · 2.4K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Korean Kanakaraju</div>
+            <div class="release-meta">Netflix · Sep 4 · Telugu + dubbed · <span class="genre">Horror comedy</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">7.7 · 2.4K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict try">Worth Watching</div>
-          <div class="release-summary">A Telugu man becomes possessed by a Korean spirit and is pulled into a comic journey to fulfill its unfinished wish.</div>
+          <div class="release-summary">A Telugu man becomes entangled with a Korean spirit, turning an unfinished supernatural mission into a comic adventure.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Unmadham</div><div class="release-meta">SonyLIV · Sep 4 · Malayalam + dubbed · <span class="genre">Crime mystery / psychological thriller</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">6.3 · 1.2K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Unmadham</div>
+            <div class="release-meta">SonyLIV · Sep 4 · Malayalam + dubbed · <span class="genre">Crime mystery / psychological thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">6.3 · 1.2K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict maybe">Mixed / Niche</div>
-          <div class="release-summary">A weary police officer reopens a long-abandoned death case whose disturbing reputation blurs reality and superstition.</div>
+          <div class="release-summary">A police officer reopens an old death investigation whose disturbing reputation begins to blur crime, fear and superstition.</div>
         </article>
-
-        <article class="release" data-kind="show">
-          <div><div class="release-title">The Court</div><div class="release-meta">JioHotstar · Sep 4 · Tamil · <span class="genre">Courtroom / family drama</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A gifted young lawyer with a stammer takes on a major legal fight that puts her directly against her celebrated father.</div>
-        </article>
-
-        <article class="release" data-kind="show">
-          <div><div class="release-title">Jagamae Sangeetham</div><div class="release-meta">Prime Video · Sep 4 · Telugu / Tamil · <span class="genre">Music / family drama</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A young Carnatic prodigy wrestles with family pressure, financial strain and tradition after an unexpected creative partnership.</div>
-        </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Puratawn</div><div class="release-meta">Hoichoi · Sep 4 · Bengali · <span class="genre">Social / family drama</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A daughter returns home for her mother’s 80th birthday and confronts fading memories, old wounds and family truths.</div>
+          <div>
+            <div class="release-title">Pallaburusu</div>
+            <div class="release-meta">Prime Video · Sep 2 · Telugu · <span class="genre">Rural family comedy-drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">7.4 · 2K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">A rural Telangana father takes his son to court over a neglected toothbrush request, and the tiny dispute fractures the whole family.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Gandhari</div><div class="release-meta">Netflix · Sep 3 · Hindi + dubbed · <span class="genre">Action thriller / mystery</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Arulvaan</div>
+            <div class="release-meta">Prime Video / Simply South · Sep 4 · Tamil · <span class="genre">Social drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">8.7 · 134 votes (early)</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A determined district collector fights bureaucratic and social barriers to educate a tribal girl and bring schooling to her forest community.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Ananthan Kaadu</div>
+            <div class="release-meta">ManoramaMAX / Prime Video · Sep 2 · Malayalam + dubbed · <span class="genre">Action thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">7.4 · 80 votes (early)</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">Arya leads a multilingual action thriller built around danger, pursuit and survival in a volatile setting.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Puratawn</div>
+            <div class="release-meta">Hoichoi · Sep 4 · Bengali · <span class="genre">Family drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">6.8 · 46 votes (early)</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A woman returns to her ancestral home for her mother&#x27;s 80th birthday and must confront her mother&#x27;s deteriorating memory.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Pagida Kali</div>
+            <div class="release-meta">Prime Video / Simply South / ManoramaMAX / Lionsgate Play · Sep 2 · Malayalam · <span class="genre">Crime thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A murder in Kerala is followed by a child&#x27;s disappearance, pushing an investigation across state borders as the mystery deepens.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Gandhari</div>
+            <div class="release-meta">Netflix · Sep 3 · Hindi + Tamil/Telugu audio · <span class="genre">Action thriller / mystery</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict wait">Wait for Reviews</div>
-          <div class="release-summary">After losing her eyesight and her daughter in a kidnapping, a mother launches a relentless hunt for those responsible.</div>
+          <div class="release-summary">After losing her eyesight and her daughter in a kidnapping, a mother takes the search into her own hands and hunts for the truth.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Ananthan Kaadu</div><div class="release-meta">Prime Video / ManoramaMax · Sep 2 · Malayalam + dubbed · <span class="genre">Action thriller</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">The Yellow Elephant</div>
+            <div class="release-meta">aha Tamil · Sep 4 · Tamil · <span class="genre">Social / wildlife drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A tense action-driven story built around danger, pursuit and survival, led by Arya in a multilingual release.</div>
+          <div class="release-summary">A working elephant and his mahout face upheaval after activists document the animal&#x27;s use at a timber yard in southern Tamil Nadu.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">The Court</div>
+            <div class="release-meta">JioHotstar · Sep 4 · Tamil · <span class="genre">Courtroom / family drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A gifted young lawyer takes on a high-stakes legal fight that brings her into direct conflict with her celebrated father.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Jagamae Sangeetham</div>
+            <div class="release-meta">Prime Video · Sep 4 · Telugu / Tamil · <span class="genre">Music / family drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A young Carnatic prodigy shoulders his family&#x27;s legacy and finances while an unexpected creative partnership challenges tradition.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Gnyapakalu</div>
+            <div class="release-meta">ETV Win · Sep 6 · Telugu · <span class="genre">Short film / anthology story</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A new KathaSudha Sunday Story arriving on ETV Win; included as a short-form OTT film rather than a full series.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Bigg Boss 20</div>
+            <div class="release-meta">JioHotstar · Sep 6 · Hindi · <span class="genre">Reality competition · new season</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">Salman Khan returns for the twentieth Hindi season of the reality competition, with a new house and fresh contestant lineup.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Bigg Boss Tamil 10</div>
+            <div class="release-meta">JioHotstar · Sep 6 · Tamil · <span class="genre">Reality competition · new season</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">The Tamil edition returns for its tenth season with a new group of housemates and the franchise&#x27;s familiar elimination format.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Bigg Boss Telugu 10</div>
+            <div class="release-meta">JioHotstar · Sep 6 · Telugu · <span class="genre">Reality competition · new season</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">The Telugu reality franchise begins its tenth season with a new house, new contestants and continuous streaming coverage.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Bigg Boss Kannada 13</div>
+            <div class="release-meta">JioHotstar · Sep 6 · Kannada · <span class="genre">Reality competition · new season</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">The Kannada edition opens its thirteenth season as a new cast of contestants enters the Bigg Boss house.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Bigg Boss Malayalam 8</div>
+            <div class="release-meta">JioHotstar · Sep 6 · Malayalam · <span class="genre">Reality competition · new season</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">The Malayalam edition returns for season eight with a fresh housemate lineup and the usual social-strategy pressure cooker.</div>
         </article>
       </section>
 
       <section class="panel" id="panel-us" role="tabpanel" aria-labelledby="tab-us" hidden>
-        <div class="panel-head">
-          <h2>American / English</h2>
-          <div class="panel-note">9 new to OTT</div>
-        </div>
-
+        <div class="panel-head"><h2>U.S. / English releases</h2><div class="panel-note">18 verified</div></div>
         <div class="filtered-empty" hidden>No releases match this filter.</div>
-
-        <div class="note" style="margin-top:12px;padding-top:0;border-top:0">
-          <strong>Recommendation labels:</strong>
-          Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = depends on taste ·
-          Too New to Rate = not enough ratings yet · Wait for Reviews = early feedback is still unclear.
-        </div>
-
+        <div class="legend"><strong>Labels:</strong> Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = taste-dependent · Too New to Rate = not enough data · Skip = weak current signal.</div>
+        
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Mayday</div><div class="release-meta">Apple TV+ · Sep 4 · English · <span class="genre">Cold War action comedy</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">83%</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict watch">Recommended</div>
-          <div class="release-summary">A downed U.S. pilot in Soviet territory is rescued by a disillusioned ex-KGB agent in a retro buddy adventure.</div>
-        </article>
-
-        <article class="release" data-kind="show">
-          <div><div class="release-title">The Gentlemen — Season 2</div><div class="release-meta">Netflix · Sep 3 · English · <span class="genre">Crime comedy / drama</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">89%</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict watch">Recommended</div>
-          <div class="release-summary">Eddie and Susie expand their criminal empire across Europe as new mob pressure and dangerous power plays close in.</div>
-        </article>
-
-        <article class="release" data-kind="movie">
-          <div><div class="release-title">The Mandalorian and Grogu</div><div class="release-meta">Disney+ · This week · English · <span class="genre">Sci-fi action adventure</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">6.8 · 96K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">60%</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">86%</span></span></div></div>
-          <div class="verdict watch">Recommended</div>
-          <div class="release-summary">Din Djarin and Grogu are recruited by the New Republic for another mission amid the remnants of the Empire.</div>
-        </article>
-
-        <article class="release" data-kind="show">
-          <div><div class="release-title">Chad Powers — Season 2</div><div class="release-meta">Hulu · Sep 3 · English · <span class="genre">Sports comedy / drama</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">7.5 overall</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">100%*</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Untold Raygun: Breaking Badly</div>
+            <div class="release-meta">Netflix · Sep 1 · English · <span class="genre">Sports documentary</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict try">Worth Watching</div>
-          <div class="release-summary">A disgraced quarterback continues hiding behind his Chad Powers persona as his double life creates bigger risks.</div>
+          <div class="release-summary">Australian breaker Rachael &#x27;Raygun&#x27; Gunn revisits her unlikely Olympic path, viral performance and the backlash that followed.</div>
         </article>
-
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">The Varnell Hill Show — Season 1</div>
+            <div class="release-meta">Paramount+ · Sep 1 · English · <span class="genre">Comedy · new series</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A once-famous late-night host fights to stay relevant while old-school star power collides with new corporate control behind the scenes.</div>
+        </article>
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Scary Movie (2026)</div><div class="release-meta">Paramount+ · Sep 3 · English · <span class="genre">Horror comedy / parody</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">4.9 · 52K votes</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Turning Point: Generation 9/11</div>
+            <div class="release-meta">Netflix · Sep 2 · English · <span class="genre">Historical documentary</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">Twenty-five years later, survivors, journalists, Afghans and U.S. Marines examine how 9/11 reshaped an entire generation.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">The Runner</div>
+            <div class="release-meta">Prime Video · Sep 2 · English · <span class="genre">Psychological action thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">4.6</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">10%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">42%</span></span>
+      </div>
+          </div>
           <div class="verdict skip">Skip</div>
-          <div class="release-summary">Cindy, Brenda, Shorty and Ray reunite when a new masked killer drags the old group back into absurd horror-movie chaos.</div>
+          <div class="release-summary">A London lawyer&#x27;s son is kidnapped during her morning run, forcing her to keep moving and obey a caller&#x27;s escalating commands.</div>
         </article>
-
         <article class="release" data-kind="movie">
-          <div><div class="release-title">Fuze</div><div class="release-meta">HBO Max · Sep 4 · English · <span class="genre">Crime / action thriller</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">72%</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Star Wars: The Mandalorian and Grogu</div>
+            <div class="release-meta">Disney+ · Sep 2 · English · <span class="genre">Sci-fi action adventure</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">6.8 · ~93K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">61%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">86%</span></span>
+      </div>
+          </div>
           <div class="verdict try">Worth Watching</div>
-          <div class="release-summary">An unexploded WWII bomb triggers a London evacuation while criminals exploit the chaos to execute a precision bank heist.</div>
+          <div class="release-summary">Din Djarin and Grogu join the New Republic on another mission as Imperial remnants continue to threaten the galaxy.</div>
         </article>
-
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">9/11: United We Stand — 25 Years Later</div>
+            <div class="release-meta">Hulu / Disney+ · Sep 2 · English · <span class="genre">Documentary special</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">Michael Strahan leads a two-hour look at the sports, music, media and community forces that helped people heal after 9/11.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">The Gentlemen — Season 2</div>
+            <div class="release-meta">Netflix · Sep 3 · English · <span class="genre">Crime comedy / drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">89% · early</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict watch">Recommended</div>
+          <div class="release-summary">Eddie and Susie push their criminal operation into a more dangerous phase as new rivals and power struggles close in.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Chad Powers — Season 2</div>
+            <div class="release-meta">Hulu · Sep 3 · English · <span class="genre">Sports comedy / drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">7.5 overall</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">100% · 5 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">The disgraced quarterback keeps hiding behind his Chad Powers identity as the deception creates bigger personal and football risks.</div>
+        </article>
         <article class="release" data-kind="movie">
-          <div><div class="release-title">The Runner</div><div class="release-meta">Prime Video · Sep 2 · English · <span class="genre">Psychological action thriller</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
+          <div>
+            <div class="release-title">Clash of the Thundermans</div>
+            <div class="release-meta">Paramount+ · Sep 3 · English · <span class="genre">Superhero family comedy</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">— · early/volatile</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
           <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A London lawyer’s son is kidnapped during her morning run, forcing her to keep moving and obey a caller’s instructions.</div>
+          <div class="release-summary">Chloe develops an unpredictable superpower, splitting the Thunderman family over whether she should be sent away for training.</div>
         </article>
-
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Scary Movie (2026)</div>
+            <div class="release-meta">Paramount+ · Sep 3 · English · <span class="genre">Horror comedy / parody</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">4.9 · 52K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">24%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">64%</span></span>
+      </div>
+          </div>
+          <div class="verdict skip">Skip</div>
+          <div class="release-summary">Cindy, Brenda, Shorty and Ray are pulled back together when another masked killer starts targeting the old group.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Mayday</div>
+            <div class="release-meta">Apple TV · Sep 4 · English · <span class="genre">Cold War action comedy</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">83% · 54 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict watch">Recommended</div>
+          <div class="release-summary">A U.S. Navy pilot crashes behind Soviet lines in 1987 and forms an unlikely partnership with an eccentric former KGB agent.</div>
+        </article>
         <article class="release" data-kind="show">
-          <div><div class="release-title">The Grand Tour</div><div class="release-meta">Prime Video · Sep 4 · English · <span class="genre">Motoring / travel reality</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A new trio of hosts tackles automotive challenges, global road trips and oversized stunts across six episodes.</div>
+          <div>
+            <div class="release-title">Earle Meets World — Season 1</div>
+            <div class="release-meta">Netflix · Sep 4 · English · <span class="genre">Reality / docusoap</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict maybe">Mixed / Niche</div>
+          <div class="release-summary">Influencer Alix Earle opens up her life, family, friendships and business pressures in an unfiltered reality series.</div>
         </article>
-
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Teenage Wasteland</div>
+            <div class="release-meta">Netflix · Sep 4 · English · <span class="genre">Documentary / true story</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">100% · 28 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict watch">Recommended</div>
+          <div class="release-summary">Students who exposed a toxic-waste conspiracy with a DIY film in 1991 reunite decades later to reckon with what they uncovered.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Signal One</div>
+            <div class="release-meta">Hulu · Sep 4 · English · <span class="genre">Sci-fi thriller · first SVOD arrival</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">5.6 · 2.5K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">80%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">65%</span></span>
+      </div>
+          </div>
+          <div class="verdict maybe">Mixed / Niche</div>
+          <div class="release-summary">A computer scientist joins a billionaire&#x27;s isolated project to contact extraterrestrial life, only to discover the danger of making contact.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div>
+            <div class="release-title">Fuze</div>
+            <div class="release-meta">HBO Max · Sep 4 · English · <span class="genre">Crime / action thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">6.2 · ~14K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">72%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">78%</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">An unexploded WWII bomb forces a London evacuation while criminals exploit the chaos to execute a precision bank heist.</div>
+        </article>
         <article class="release" data-kind="show">
-          <div><div class="release-title">The Program: Texas Tech</div><div class="release-meta">Paramount+ · Sep 4 · English · <span class="genre">Sports docuseries</span></div><div class="ratings-grid"><span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span><span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span></div></div>
-          <div class="verdict new">Too New to Rate</div>
-          <div class="release-summary">A behind-the-scenes look at Texas Tech football’s turbulent 2026 offseason, roster rebuild and quarterback controversy.</div>
+          <div>
+            <div class="release-title">The Grand Tour — New Season</div>
+            <div class="release-meta">Prime Video · Sep 4 · English · <span class="genre">Motoring / travel reality</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict maybe">Mixed / Niche</div>
+          <div class="release-summary">Francis Bourgeois, James Engelsman and Thomas Holland take over for six new episodes of road trips, cars, races and oversized stunts.</div>
         </article>
-
-        <p class="note">*Chad Powers S2’s 100% Rotten Tomatoes critics score is from a very small early sample.</p>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">The Program: Texas Tech — Season 1</div>
+            <div class="release-meta">Paramount+ · Sep 4 · English · <span class="genre">Sports docuseries</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A four-part inside look at Texas Tech football&#x27;s turbulent 2026 offseason, roster rebuild and pressure around quarterback Brendan Sorsby.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div>
+            <div class="release-title">Instadocs: The Decoy Plane</div>
+            <div class="release-meta">Netflix · Sep 4 · English · <span class="genre">Political documentary special</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">— · 0 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">Firsthand accounts reconstruct a secretive Air Force One escape and the unusual decoy operation that left the press flying blind.</div>
+        </article>
       </section>
 
       <section class="panel" id="panel-tonight" role="tabpanel" aria-labelledby="tab-tonight" hidden>
-        <div class="panel-head">
-          <h2>What I’d watch tonight</h2>
-          <div class="panel-note">Quick decision</div>
-        </div>
-
+        <div class="panel-head"><h2>What I’d watch tonight</h2><div class="panel-note">Quick decision</div></div>
         <div class="quick-list">
           <div class="quick-row"><div class="quick-label">Best series</div><div class="quick-value">The Gentlemen — Season 2</div></div>
           <div class="quick-row"><div class="quick-label">Best Indian</div><div class="quick-value">G.D.N.</div></div>
-          <div class="quick-row"><div class="quick-label">Want action</div><div class="quick-value">DC</div></div>
+          <div class="quick-row"><div class="quick-label">Telugu</div><div class="quick-value">Pallaburusu for family drama; Korean Kanakaraju for horror-comedy</div></div>
+          <div class="quick-row"><div class="quick-label">Action</div><div class="quick-value">DC</div></div>
           <div class="quick-row"><div class="quick-label">Best movie</div><div class="quick-value">Mayday</div></div>
-          <div class="quick-row"><div class="quick-label">Easy comedy</div><div class="quick-value">Dhamaal 4</div></div>
-          <div class="quick-row"><div class="quick-label">Telugu</div><div class="quick-value">Korean Kanakaraju</div></div>
-          <div class="quick-row"><div class="quick-label">Reality</div><div class="quick-value">The Grand Tour</div></div>
-          <div class="quick-row"><div class="quick-label">Skip first</div><div class="quick-value">Scary Movie (2026)</div></div>
+          <div class="quick-row"><div class="quick-label">Documentary</div><div class="quick-value">Teenage Wasteland</div></div>
+          <div class="quick-row"><div class="quick-label">Star Wars</div><div class="quick-value">The Mandalorian and Grogu</div></div>
+          <div class="quick-row"><div class="quick-label">Skip first</div><div class="quick-value">The Runner / Scary Movie (2026)</div></div>
         </div>
-
-        <p class="note">This page covers OTT availability only — no theatrical-only releases.</p>
+        <p class="note"><strong>Scope:</strong> new OTT originals, new series/seasons, and recent theatrical films making a meaningful subscription-streaming arrival. We exclude theatrical-only releases, PVOD-only releases, ordinary weekly episodes, old catalog additions and stand-up specials. Sunday Sep 6 launches are included because this is the weekend edition.</p>
       </section>
     </main>
   </div>
-
   <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
 
   <script>
@@ -696,110 +760,80 @@
       const filterBar = document.getElementById('filterBar');
       const shareButton = document.getElementById('shareButton');
       const toast = document.getElementById('toast');
-
       let activeKind = 'all';
 
-      function activePanel() {
-        return panels.find(panel => !panel.hidden);
-      }
+      function activePanel(){ return panels.find(panel => !panel.hidden); }
 
-      function applyKindFilter() {
+      function applyKindFilter(){
         const panel = activePanel();
         if (!panel) return;
-
         const items = Array.from(panel.querySelectorAll('[data-kind]'));
         let visibleCount = 0;
-
         items.forEach(item => {
           const show = activeKind === 'all' || item.dataset.kind === activeKind;
           item.hidden = !show;
           if (show) visibleCount++;
         });
-
         const empty = panel.querySelector('.filtered-empty');
         if (empty) empty.hidden = !(items.length > 0 && visibleCount === 0);
-
-        filters.forEach(button => {
-          button.setAttribute('aria-pressed', String(button.dataset.kindFilter === activeKind));
-        });
+        filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.kindFilter === activeKind)));
       }
 
-      function activateTab(tab, updateHash = true) {
+      function activateTab(tab, updateHash=true){
         tabs.forEach(t => t.setAttribute('aria-selected', String(t === tab)));
         panels.forEach(p => p.hidden = p.id !== tab.getAttribute('aria-controls'));
-
         const showCatalogFilter = tab.id === 'tab-india' || tab.id === 'tab-us';
         filterBar.hidden = !showCatalogFilter;
-
-        if (updateHash) {
-          const key = tab.id.replace('tab-', '');
-          history.replaceState(null, '', '#' + key);
-        }
-
+        if (updateHash) history.replaceState(null, '', '#' + tab.id.replace('tab-',''));
         applyKindFilter();
-        tab.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-        window.scrollTo({top: document.querySelector('.tabs-wrap').offsetTop, behavior:'smooth'});
+        tab.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+        window.scrollTo({top:document.querySelector('.tabs-wrap').offsetTop,behavior:'smooth'});
       }
 
-      tabs.forEach((tab, index) => {
+      tabs.forEach((tab,index) => {
         tab.addEventListener('click', () => activateTab(tab));
         tab.addEventListener('keydown', event => {
           if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
           event.preventDefault();
-          let next = index;
-          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') next = 0;
-          if (event.key === 'End') next = tabs.length - 1;
-          tabs[next].focus();
-          activateTab(tabs[next]);
+          let next=index;
+          if(event.key==='ArrowRight') next=(index+1)%tabs.length;
+          if(event.key==='ArrowLeft') next=(index-1+tabs.length)%tabs.length;
+          if(event.key==='Home') next=0;
+          if(event.key==='End') next=tabs.length-1;
+          tabs[next].focus(); activateTab(tabs[next]);
         });
       });
 
-      filters.forEach(button => {
-        button.addEventListener('click', () => {
-          activeKind = button.dataset.kindFilter;
-          applyKindFilter();
-        });
-      });
+      filters.forEach(button => button.addEventListener('click', () => {
+        activeKind = button.dataset.kindFilter;
+        applyKindFilter();
+      }));
 
       const hash = location.hash.replace('#','');
       const initial = document.getElementById('tab-' + hash);
-      if (initial) {
-        activateTab(initial, false);
-      } else {
-        filterBar.hidden = true;
-        applyKindFilter();
-      }
+      if(initial) activateTab(initial,false);
+      else { filterBar.hidden=true; applyKindFilter(); }
 
-      function showToast(message) {
-        toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1800);
+      function showToast(message){
+        toast.textContent=message; toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'),1800);
       }
 
       shareButton.addEventListener('click', async () => {
-        const permanentUrl = 'https://ott.rudraraju.dev/archive/2026-09-04/';
-        const data = {
-          title: 'Weekend OTT — Sep 4–6, 2026',
-          text: 'What’s worth streaming this weekend — India + U.S., OTT only.',
-          url: permanentUrl
+        const permanentUrl='https://ott.rudraraju.dev/archive/2026-09-04/';
+        const data={
+          title:'Weekend OTT — Sep 4–6, 2026',
+          text:'38 verified OTT drops tracked for the Sep 4 weekend — Indian + U.S./English.',
+          url:permanentUrl
         };
-
-        try {
-          if (navigator.share) {
-            await navigator.share(data);
-          } else if (navigator.clipboard) {
-            await navigator.clipboard.writeText(permanentUrl);
-            showToast('Link copied');
-          } else {
-            showToast('Copy the page address to share');
-          }
-        } catch (err) {
-          if (err && err.name !== 'AbortError') showToast('Could not share');
-        }
+        try{
+          if(navigator.share) await navigator.share(data);
+          else if(navigator.clipboard){ await navigator.clipboard.writeText(permanentUrl); showToast('Link copied'); }
+          else showToast('Copy the page address to share');
+        }catch(err){ if(err && err.name!=='AbortError') showToast('Could not share'); }
       });
     })();
   </script>
+
 </body>
 </html>
