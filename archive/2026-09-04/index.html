@@ -56,31 +56,45 @@
     .header-actions{
       display:flex;
       align-items:center;
-      gap:8px;
+      gap:7px;
       flex:0 0 auto;
     }
-    .archive-link,
+    .nav-link,
     .share{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:42px;
-      padding:8px 13px;
-      font-weight:700;
-      font-size:.82rem;
+      min-height:40px;
+      padding:8px 11px;
+      border:1px solid var(--line);
       border-radius:3px;
-    }
-    .archive-link{
+      background:transparent;
       color:var(--ink);
       text-decoration:none;
-      border:1px solid var(--line);
-      background:transparent;
+      font-weight:700;
+      font-size:.79rem;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .nav-link.active{
+      background:var(--ink);
+      border-color:var(--ink);
+      color:var(--paper);
     }
     .share{
-      border:1px solid var(--ink);
-      background:transparent;
-      color:var(--ink);
-      cursor:pointer;
+      border-color:var(--ink);
+    }
+    .nav-link:focus-visible,
+    .share:focus-visible{
+      outline:2px solid var(--blue);
+      outline-offset:2px;
+    }
+    @media(max-width:480px){
+      .masthead-row{flex-wrap:wrap}
+      .header-actions{
+        width:100%;
+        justify-content:flex-start;
+      }
     }
     .edition{
       display:flex;
@@ -438,8 +452,9 @@
     <header class="masthead">
       <div class="masthead-row">
         <div class="brand">Weekend OTT</div>
-        <div class="header-actions">
-          <a class="archive-link" href="/archive/">Archive</a>
+        <div class="header-actions" aria-label="Site navigation">
+          <a class="nav-link" href="/">Latest</a>
+          <a class="nav-link active" href="/archive/">Archive</a>
           <button class="share" id="shareButton" type="button">Share</button>
         </div>
       </div>
