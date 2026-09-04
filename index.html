@@ -94,6 +94,154 @@
       .quick-row:nth-child(odd){padding-right:24px}
       .quick-row:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
     }
+
+    /* Poster-first editorial layer */
+    .top-picks-grid{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:minmax(158px,42%);
+      gap:14px;
+      overflow-x:auto;
+      padding:12px 0 10px;
+      scroll-snap-type:x mandatory;
+      scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
+    }
+    .top-picks-grid::-webkit-scrollbar{display:none}
+    .top-pick{
+      display:block;
+      padding:0 0 18px;
+      border-bottom:0;
+      scroll-snap-align:start;
+      min-width:0;
+    }
+    .top-pick .rank{
+      margin-top:9px;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:.72rem;
+      line-height:1;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--red);
+    }
+
+    .poster-shell{
+      position:relative;
+      aspect-ratio:2/3;
+      overflow:hidden;
+      border:1px solid rgba(23,23,23,.17);
+      border-radius:5px;
+      background:
+        radial-gradient(circle at 72% 18%, hsla(var(--poster-hue),70%,84%,.42), transparent 25%),
+        linear-gradient(150deg,
+          hsl(var(--poster-hue),35%,17%),
+          hsl(calc(var(--poster-hue) + 18),42%,36%) 56%,
+          hsl(calc(var(--poster-hue) + 35),30%,12%)
+        );
+    }
+    .poster-shell::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:2;
+      pointer-events:none;
+      background:linear-gradient(to top,rgba(0,0,0,.76),rgba(0,0,0,.08) 63%,rgba(0,0,0,.01));
+    }
+    .poster-image{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:1;
+    }
+    .poster-fallback{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+      color:#fff;
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:700;
+      font-size:clamp(.82rem,3.3vw,1.28rem);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      text-align:center;
+      text-wrap:balance;
+    }
+    .poster-caption{
+      position:absolute;
+      z-index:3;
+      left:9px;
+      right:9px;
+      bottom:9px;
+      color:#fff;
+      font-family:Georgia,"Times New Roman",serif;
+      font-weight:700;
+      font-size:.83rem;
+      line-height:1.03;
+    }
+
+    .release{
+      grid-template-columns:76px minmax(0,1fr) auto;
+      gap:10px 14px;
+      align-items:start;
+    }
+    .release-poster{
+      width:76px;
+      grid-row:1 / span 2;
+    }
+    .release-poster .poster-shell{width:76px}
+    .release-poster .poster-fallback{font-size:.68rem;padding:8px}
+    .release-poster .poster-caption{font-size:.62rem;left:6px;right:6px;bottom:6px}
+    .release-content{min-width:0}
+    .release-summary{
+      grid-column:2 / -1;
+      margin-top:0;
+    }
+    .verdict{
+      grid-column:3;
+      grid-row:1;
+    }
+
+    @media(max-width:520px){
+      .release{
+        grid-template-columns:70px minmax(0,1fr);
+        gap:10px 12px;
+      }
+      .release-poster{
+        width:70px;
+        grid-row:1 / span 3;
+      }
+      .release-poster .poster-shell{width:70px}
+      .verdict{
+        grid-column:2;
+        grid-row:2;
+        justify-self:start;
+        min-width:0;
+      }
+      .release-summary{
+        grid-column:2;
+        grid-row:3;
+      }
+    }
+    @media(min-width:760px){
+      .top-picks-grid{
+        grid-auto-flow:initial;
+        grid-template-columns:repeat(3,1fr);
+        overflow:visible;
+      }
+      .release{
+        grid-template-columns:86px minmax(0,1fr) 145px;
+      }
+      .release-poster,
+      .release-poster .poster-shell{width:86px}
+    }
+
   </style>
 
 </head>
@@ -142,11 +290,16 @@
     <main>
       <section class="panel" id="panel-top" role="tabpanel" aria-labelledby="tab-top">
         <div class="panel-head"><h2>Top 3</h2><div class="panel-note">Weekend picks</div></div>
-        
-        <article class="top-pick" data-kind="show">
-          <div class="rank">1</div>
-          <div>
-            <div class="pick-title">The Gentlemen — Season 2</div>
+        <div class="top-picks-grid">
+<article class="top-pick" data-kind="show">
+          <div class="top-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:36">
+              <div class="poster-fallback">The Gentlemen</div>
+              <div class="poster-caption">The Gentlemen — Season 2</div>
+            </div>
+          </div>
+          <div class="rank">#1 PICK</div>
+          <div class="pick-title">The Gentlemen — Season 2</div>
             <div class="meta">Netflix · English · Crime comedy / drama</div>
             
       <div class="ratings-grid">
@@ -155,12 +308,16 @@
         <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
       </div>
             <div class="summary">Eddie and Susie push their criminal operation into a more dangerous phase as new rivals and power struggles close in.</div>
-          </div>
         </article>
         <article class="top-pick" data-kind="movie">
-          <div class="rank">2</div>
-          <div>
-            <div class="pick-title">G.D.N.</div>
+          <div class="top-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:153">
+              <div class="poster-fallback">G.D.N.</div>
+              <div class="poster-caption">G.D.N.</div>
+            </div>
+          </div>
+          <div class="rank">#2 PICK</div>
+          <div class="pick-title">G.D.N.</div>
             <div class="meta">Netflix · Tamil + dubbed · Biographical drama</div>
             
       <div class="ratings-grid">
@@ -169,12 +326,16 @@
         <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
       </div>
             <div class="summary">R. Madhavan stars as inventor and industrialist G.D. Naidu in a biographical drama about ambition, innovation and conflict.</div>
-          </div>
         </article>
         <article class="top-pick" data-kind="movie">
-          <div class="rank">3</div>
-          <div>
-            <div class="pick-title">Mayday</div>
+          <div class="top-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:142">
+              <div class="poster-fallback">Mayday</div>
+              <div class="poster-caption">Mayday</div>
+            </div>
+          </div>
+          <div class="rank">#3 PICK</div>
+          <div class="pick-title">Mayday</div>
             <div class="meta">Apple TV · English · Cold War action comedy</div>
             
       <div class="ratings-grid">
@@ -183,8 +344,8 @@
         <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
       </div>
             <div class="summary">A U.S. Navy pilot crashes behind Soviet lines in 1987 and forms an unlikely partnership with an eccentric former KGB agent.</div>
-          </div>
         </article>
+        </div>
         <p class="note"><strong>Ratings format:</strong> every title uses IMDb, Rotten Tomatoes Critics and Rotten Tomatoes Audience. A dash means no reliable aggregate is available yet. Small or early samples are labeled rather than treated as mature scores.</p>
       </section>
 
@@ -194,8 +355,14 @@
         <div class="legend"><strong>Labels:</strong> Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = taste-dependent · Too New to Rate = not enough data · Wait for Reviews = early feedback unclear.</div>
         
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">G.D.N.</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:153">
+              <div class="poster-fallback">G.D.N.</div>
+              <div class="poster-caption">G.D.N.</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">G.D.N.</div>
             <div class="release-meta">Netflix · Sep 4 · Tamil + dubbed · <span class="genre">Biographical drama</span></div>
             
       <div class="ratings-grid">
@@ -208,8 +375,14 @@
           <div class="release-summary">R. Madhavan stars as inventor and industrialist G.D. Naidu in a biographical drama about ambition, innovation and conflict.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">DC</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:170">
+              <div class="poster-fallback">DC</div>
+              <div class="poster-caption">DC</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">DC</div>
             <div class="release-meta">Sun NXT · Sep 4 · Tamil + dubbed · <span class="genre">Romantic action thriller</span></div>
             
       <div class="ratings-grid">
@@ -222,8 +395,14 @@
           <div class="release-summary">A troubled man is pulled into murder, stolen weapons and gang violence while fighting for survival and revenge.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Dhamaal 4</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:103">
+              <div class="poster-fallback">Dhamaal 4</div>
+              <div class="poster-caption">Dhamaal 4</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Dhamaal 4</div>
             <div class="release-meta">Netflix · Sep 4 · Hindi · <span class="genre">Action comedy / slapstick</span></div>
             
       <div class="ratings-grid">
@@ -236,8 +415,14 @@
           <div class="release-summary">The chaotic ensemble returns for another broad comedy built around greed, mishaps and an escalating treasure hunt.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Korean Kanakaraju</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:162">
+              <div class="poster-fallback">Korean Kanakaraju</div>
+              <div class="poster-caption">Korean Kanakaraju</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Korean Kanakaraju</div>
             <div class="release-meta">Netflix · Sep 4 · Telugu + dubbed · <span class="genre">Horror comedy</span></div>
             
       <div class="ratings-grid">
@@ -250,8 +435,14 @@
           <div class="release-summary">A Telugu man becomes entangled with a Korean spirit, turning an unfinished supernatural mission into a comic adventure.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Unmadham</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:92">
+              <div class="poster-fallback">Unmadham</div>
+              <div class="poster-caption">Unmadham</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Unmadham</div>
             <div class="release-meta">SonyLIV · Sep 4 · Malayalam + dubbed · <span class="genre">Crime mystery / psychological thriller</span></div>
             
       <div class="ratings-grid">
@@ -264,8 +455,14 @@
           <div class="release-summary">A police officer reopens an old death investigation whose disturbing reputation begins to blur crime, fear and superstition.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Pallaburusu</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:8">
+              <div class="poster-fallback">Pallaburusu</div>
+              <div class="poster-caption">Pallaburusu</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Pallaburusu</div>
             <div class="release-meta">Prime Video · Sep 2 · Telugu · <span class="genre">Rural family comedy-drama</span></div>
             
       <div class="ratings-grid">
@@ -278,8 +475,14 @@
           <div class="release-summary">A rural Telangana father takes his son to court over a neglected toothbrush request, and the tiny dispute fractures the whole family.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Arulvaan</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:291">
+              <div class="poster-fallback">Arulvaan</div>
+              <div class="poster-caption">Arulvaan</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Arulvaan</div>
             <div class="release-meta">Prime Video / Simply South · Sep 4 · Tamil · <span class="genre">Social drama</span></div>
             
       <div class="ratings-grid">
@@ -292,8 +495,14 @@
           <div class="release-summary">A determined district collector fights bureaucratic and social barriers to educate a tribal girl and bring schooling to her forest community.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Ananthan Kaadu</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:252">
+              <div class="poster-fallback">Ananthan Kaadu</div>
+              <div class="poster-caption">Ananthan Kaadu</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Ananthan Kaadu</div>
             <div class="release-meta">ManoramaMAX / Prime Video · Sep 2 · Malayalam + dubbed · <span class="genre">Action thriller</span></div>
             
       <div class="ratings-grid">
@@ -306,8 +515,14 @@
           <div class="release-summary">Arya leads a multilingual action thriller built around danger, pursuit and survival in a volatile setting.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Puratawn</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:239">
+              <div class="poster-fallback">Puratawn</div>
+              <div class="poster-caption">Puratawn</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Puratawn</div>
             <div class="release-meta">Hoichoi · Sep 4 · Bengali · <span class="genre">Family drama</span></div>
             
       <div class="ratings-grid">
@@ -320,8 +535,14 @@
           <div class="release-summary">A woman returns to her ancestral home for her mother&#x27;s 80th birthday and must confront her mother&#x27;s deteriorating memory.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Pagida Kali</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:349">
+              <div class="poster-fallback">Pagida Kali</div>
+              <div class="poster-caption">Pagida Kali</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Pagida Kali</div>
             <div class="release-meta">Prime Video / Simply South / ManoramaMAX / Lionsgate Play · Sep 2 · Malayalam · <span class="genre">Crime thriller</span></div>
             
       <div class="ratings-grid">
@@ -334,8 +555,14 @@
           <div class="release-summary">A murder in Kerala is followed by a child&#x27;s disappearance, pushing an investigation across state borders as the mystery deepens.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Gandhari</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:248">
+              <div class="poster-fallback">Gandhari</div>
+              <div class="poster-caption">Gandhari</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Gandhari</div>
             <div class="release-meta">Netflix · Sep 3 · Hindi + Tamil/Telugu audio · <span class="genre">Action thriller / mystery</span></div>
             
       <div class="ratings-grid">
@@ -348,8 +575,14 @@
           <div class="release-summary">After losing her eyesight and her daughter in a kidnapping, a mother takes the search into her own hands and hunts for the truth.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">The Yellow Elephant</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:103">
+              <div class="poster-fallback">The Yellow Elephant</div>
+              <div class="poster-caption">The Yellow Elephant</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">The Yellow Elephant</div>
             <div class="release-meta">aha Tamil · Sep 4 · Tamil · <span class="genre">Social / wildlife drama</span></div>
             
       <div class="ratings-grid">
@@ -361,6 +594,71 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A working elephant and his mahout face upheaval after activists document the animal&#x27;s use at a timber yard in southern Tamil Nadu.</div>
         </article>
+        <article class="release" data-kind="show">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:221">
+              <div class="poster-fallback">The Court</div>
+              <div class="poster-caption">The Court</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">The Court</div>
+            <div class="release-meta">JioHotstar · Sep 4 · Tamil · <span class="genre">Courtroom / family drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A gifted young lawyer takes on a high-stakes legal fight that brings her into direct conflict with her celebrated father.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:347">
+              <div class="poster-fallback">Jagamae Sangeetham</div>
+              <div class="poster-caption">Jagamae Sangeetham</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Jagamae Sangeetham</div>
+            <div class="release-meta">Prime Video · Sep 4 · Telugu / Tamil · <span class="genre">Music / family drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A young Carnatic prodigy shoulders his family&#x27;s legacy and finances while an unexpected creative partnership challenges tradition.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:153">
+              <div class="poster-fallback">Gnyapakalu</div>
+              <div class="poster-caption">Gnyapakalu</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Gnyapakalu</div>
+            <div class="release-meta">ETV Win · Sep 6 · Telugu · <span class="genre">Short film / anthology story</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A new KathaSudha Sunday Story arriving on ETV Win; included as a short-form OTT film rather than a full series.</div>
+        </article>
+        
+        
+        
+        
+        
       </section>
 
       <section class="panel" id="panel-us" role="tabpanel" aria-labelledby="tab-us" hidden>
@@ -369,8 +667,14 @@
         <div class="legend"><strong>Labels:</strong> Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = taste-dependent · Too New to Rate = not enough data · Skip = weak current signal.</div>
         
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Untold Raygun: Breaking Badly</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:171">
+              <div class="poster-fallback">Untold Raygun: Breaking Badly</div>
+              <div class="poster-caption">Untold Raygun: Breaking Badly</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Untold Raygun: Breaking Badly</div>
             <div class="release-meta">Netflix · Sep 1 · English · <span class="genre">Sports documentary</span></div>
             
       <div class="ratings-grid">
@@ -382,9 +686,216 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">Australian breaker Rachael &#x27;Raygun&#x27; Gunn revisits her unlikely Olympic path, viral performance and the backlash that followed.</div>
         </article>
+        <article class="release" data-kind="show">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:229">
+              <div class="poster-fallback">The Varnell Hill Show</div>
+              <div class="poster-caption">The Varnell Hill Show — Season 1</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">The Varnell Hill Show — Season 1</div>
+            <div class="release-meta">Paramount+ · Sep 1 · English · <span class="genre">Comedy · new series</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">A once-famous late-night host fights to stay relevant while old-school star power collides with new corporate control behind the scenes.</div>
+        </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Teenage Wasteland</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:348">
+              <div class="poster-fallback">Turning Point: Generation 9/11</div>
+              <div class="poster-caption">Turning Point: Generation 9/11</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Turning Point: Generation 9/11</div>
+            <div class="release-meta">Netflix · Sep 2 · English · <span class="genre">Historical documentary</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">Twenty-five years later, survivors, journalists, Afghans and U.S. Marines examine how 9/11 reshaped an entire generation.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:177">
+              <div class="poster-fallback">The Runner</div>
+              <div class="poster-caption">The Runner</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">The Runner</div>
+            <div class="release-meta">Prime Video · Sep 2 · English · <span class="genre">Psychological action thriller</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">4.6</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">10%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">42%</span></span>
+      </div>
+          </div>
+          <div class="verdict skip">Skip</div>
+          <div class="release-summary">A London lawyer&#x27;s son is kidnapped during her morning run, forcing her to keep moving and obey a caller&#x27;s escalating commands.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:73">
+              <div class="poster-fallback">Star Wars: The Mandalorian and Grogu</div>
+              <div class="poster-caption">Star Wars: The Mandalorian and Grogu</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Star Wars: The Mandalorian and Grogu</div>
+            <div class="release-meta">Disney+ · Sep 2 · English · <span class="genre">Sci-fi action adventure</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">6.8 · ~93K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">61%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">86%</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">Din Djarin and Grogu join the New Republic on another mission as Imperial remnants continue to threaten the galaxy.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:259">
+              <div class="poster-fallback">9/11: United We Stand — 25 Years Later</div>
+              <div class="poster-caption">9/11: United We Stand — 25 Years Later</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">9/11: United We Stand — 25 Years Later</div>
+            <div class="release-meta">Hulu / Disney+ · Sep 2 · English · <span class="genre">Documentary special</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">Michael Strahan leads a two-hour look at the sports, music, media and community forces that helped people heal after 9/11.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:36">
+              <div class="poster-fallback">The Gentlemen</div>
+              <div class="poster-caption">The Gentlemen — Season 2</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">The Gentlemen — Season 2</div>
+            <div class="release-meta">Netflix · Sep 3 · English · <span class="genre">Crime comedy / drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">89% · early</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict watch">Recommended</div>
+          <div class="release-summary">Eddie and Susie push their criminal operation into a more dangerous phase as new rivals and power struggles close in.</div>
+        </article>
+        <article class="release" data-kind="show">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:259">
+              <div class="poster-fallback">Chad Powers</div>
+              <div class="poster-caption">Chad Powers — Season 2</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Chad Powers — Season 2</div>
+            <div class="release-meta">Hulu · Sep 3 · English · <span class="genre">Sports comedy / drama</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">7.5 overall</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">100% · 5 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict try">Worth Watching</div>
+          <div class="release-summary">The disgraced quarterback keeps hiding behind his Chad Powers identity as the deception creates bigger personal and football risks.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:39">
+              <div class="poster-fallback">Clash of the Thundermans</div>
+              <div class="poster-caption">Clash of the Thundermans</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Clash of the Thundermans</div>
+            <div class="release-meta">Paramount+ · Sep 3 · English · <span class="genre">Superhero family comedy</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">— · early/volatile</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict new">Too New to Rate</div>
+          <div class="release-summary">Chloe develops an unpredictable superpower, splitting the Thunderman family over whether she should be sent away for training.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:85">
+              <div class="poster-fallback">Scary Movie</div>
+              <div class="poster-caption">Scary Movie (2026)</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Scary Movie (2026)</div>
+            <div class="release-meta">Paramount+ · Sep 3 · English · <span class="genre">Horror comedy / parody</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">4.9 · 52K votes</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">24%</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">64%</span></span>
+      </div>
+          </div>
+          <div class="verdict skip">Skip</div>
+          <div class="release-summary">Cindy, Brenda, Shorty and Ray are pulled back together when another masked killer starts targeting the old group.</div>
+        </article>
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:142">
+              <div class="poster-fallback">Mayday</div>
+              <div class="poster-caption">Mayday</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Mayday</div>
+            <div class="release-meta">Apple TV · Sep 4 · English · <span class="genre">Cold War action comedy</span></div>
+            
+      <div class="ratings-grid">
+        <span class="score"><span class="score-label">IMDb</span><span class="score-value">—</span></span>
+        <span class="score"><span class="score-label">RT Critics</span><span class="score-value">83% · 54 reviews</span></span>
+        <span class="score"><span class="score-label">RT Audience</span><span class="score-value">—</span></span>
+      </div>
+          </div>
+          <div class="verdict watch">Recommended</div>
+          <div class="release-summary">A U.S. Navy pilot crashes behind Soviet lines in 1987 and forms an unlikely partnership with an eccentric former KGB agent.</div>
+        </article>
+        
+        <article class="release" data-kind="movie">
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:266">
+              <div class="poster-fallback">Teenage Wasteland</div>
+              <div class="poster-caption">Teenage Wasteland</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Teenage Wasteland</div>
             <div class="release-meta">Netflix · Sep 4 · English · <span class="genre">Documentary / true story</span></div>
             
       <div class="ratings-grid">
@@ -397,8 +908,14 @@
           <div class="release-summary">Students who exposed a toxic-waste conspiracy with a DIY film in 1991 reunite decades later to reckon with what they uncovered.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Signal One</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:258">
+              <div class="poster-fallback">Signal One</div>
+              <div class="poster-caption">Signal One</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Signal One</div>
             <div class="release-meta">Hulu · Sep 4 · English · <span class="genre">Sci-fi thriller · first SVOD arrival</span></div>
             
       <div class="ratings-grid">
@@ -411,8 +928,14 @@
           <div class="release-summary">A computer scientist joins a billionaire&#x27;s isolated project to contact extraterrestrial life, only to discover the danger of making contact.</div>
         </article>
         <article class="release" data-kind="movie">
-          <div>
-            <div class="release-title">Fuze</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:199">
+              <div class="poster-fallback">Fuze</div>
+              <div class="poster-caption">Fuze</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Fuze</div>
             <div class="release-meta">HBO Max · Sep 4 · English · <span class="genre">Crime / action thriller</span></div>
             
       <div class="ratings-grid">
@@ -424,9 +947,16 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">An unexploded WWII bomb forces a London evacuation while criminals exploit the chaos to execute a precision bank heist.</div>
         </article>
+        
         <article class="release" data-kind="show">
-          <div>
-            <div class="release-title">The Program: Texas Tech — Season 1</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:250">
+              <div class="poster-fallback">The Program: Texas Tech</div>
+              <div class="poster-caption">The Program: Texas Tech — Season 1</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">The Program: Texas Tech — Season 1</div>
             <div class="release-meta">Paramount+ · Sep 4 · English · <span class="genre">Sports docuseries</span></div>
             
       <div class="ratings-grid">
@@ -439,8 +969,14 @@
           <div class="release-summary">A four-part inside look at Texas Tech football&#x27;s turbulent 2026 offseason, roster rebuild and pressure around quarterback Brendan Sorsby.</div>
         </article>
         <article class="release" data-kind="show">
-          <div>
-            <div class="release-title">Instadocs: The Decoy Plane</div>
+          <div class="release-poster" aria-hidden="true">
+            <div class="poster-shell" style="--poster-hue:104">
+              <div class="poster-fallback">Instadocs: The Decoy Plane</div>
+              <div class="poster-caption">Instadocs: The Decoy Plane</div>
+            </div>
+          </div>
+          <div class="release-content">
+<div class="release-title">Instadocs: The Decoy Plane</div>
             <div class="release-meta">Netflix · Sep 4 · English · <span class="genre">Political documentary special</span></div>
             
       <div class="ratings-grid">
