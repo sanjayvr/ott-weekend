@@ -1,12 +1,282 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Weekend OTT Drop</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Weekend OTT Drop — Sep 4–6, 2026</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#121a2f;
+      --panel2:#18233d;
+      --text:#f8fafc;
+      --muted:#a8b3c7;
+      --line:#273552;
+      --accent:#8ab4ff;
+      --good:#6ee7b7;
+      --warn:#fbbf24;
+      --bad:#fb7185;
+      --chip:#1d2945;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,#09101e 0%,#0b1020 100%);
+      color:var(--text);
+      line-height:1.45;
+    }
+    .wrap{max-width:920px;margin:0 auto;padding:20px 16px 54px}
+    header{padding:10px 0 18px}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:.78rem;text-transform:uppercase}
+    h1{font-size:clamp(2rem,8vw,3.7rem);line-height:1.02;margin:.35rem 0 .6rem;letter-spacing:-.04em}
+    .sub{color:var(--muted);font-size:1rem}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    .chip{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#dbe7ff;font-size:.83rem}
+    .section-title{font-size:1.35rem;margin:28px 0 12px;letter-spacing:-.02em}
+    .top-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .top-card,.card{
+      background:rgba(18,26,47,.94);
+      border:1px solid var(--line);
+      border-radius:18px;
+      box-shadow:0 8px 30px rgba(0,0,0,.12);
+    }
+    .top-card{padding:16px}
+    .rank{font-size:.8rem;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .title-row{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+    .title{font-size:1.08rem;font-weight:800;margin-top:2px}
+    .verdict{font-size:.74rem;font-weight:850;letter-spacing:.06em;border-radius:999px;padding:5px 8px;white-space:nowrap}
+    .watch{background:rgba(110,231,183,.12);color:var(--good);border:1px solid rgba(110,231,183,.3)}
+    .try{background:rgba(138,180,255,.12);color:var(--accent);border:1px solid rgba(138,180,255,.3)}
+    .maybe,.new,.wait{background:rgba(251,191,36,.11);color:var(--warn);border:1px solid rgba(251,191,36,.28)}
+    .skip{background:rgba(251,113,133,.11);color:var(--bad);border:1px solid rgba(251,113,133,.3)}
+    .info{color:var(--muted);font-size:.87rem;margin-top:5px}
+    .genre{color:#d9e4f7;font-weight:700}
+    .desc{margin-top:8px;color:#eef4ff;font-size:.94rem}
+    .group{display:grid;grid-template-columns:1fr;gap:10px}
+    .card{padding:15px}
+    .rating{margin-top:8px;color:#dbe7ff;font-size:.88rem}
+    .rating strong{color:white}
+    .divider{height:1px;background:var(--line);margin:30px 0}
+    .note{
+      background:#0f172a;border:1px solid var(--line);border-radius:16px;padding:14px;
+      color:var(--muted);font-size:.85rem
+    }
+    footer{color:#77839b;text-align:center;font-size:.78rem;margin-top:26px}
+    @media(min-width:700px){
+      .top-grid{grid-template-columns:repeat(3,1fr)}
+      .group{grid-template-columns:repeat(2,1fr)}
+      .wrap{padding-left:22px;padding-right:22px}
+    }
+  </style>
 </head>
 <body>
-  <h1>🍿 Weekend OTT Drop</h1>
-  <p>Coming soon.</p>
+  <main class="wrap">
+    <header>
+      <div class="eyebrow">🍿 Weekend OTT Drop</div>
+      <h1>What’s worth streaming this weekend</h1>
+      <div class="sub">September 4–6, 2026 · OTT only · India + U.S.</div>
+      <div class="meta">
+        <span class="chip">Movies + Series</span>
+        <span class="chip">Indian + American</span>
+        <span class="chip">Ratings + vote counts</span>
+        <span class="chip">No theaters</span>
+      </div>
+    </header>
+
+    <h2 class="section-title">🔥 Top 3</h2>
+    <section class="top-grid">
+      <article class="top-card">
+        <div class="rank">#1</div>
+        <div class="title">The Gentlemen — Season 2</div>
+        <div class="info">Netflix · English · <span class="genre">Crime comedy / drama</span></div>
+        <div class="rating"><strong>RT 89%</strong> · early sample</div>
+        <div class="desc">Eddie and Susie expand their criminal empire as new enemies and bigger power plays close in.</div>
+      </article>
+      <article class="top-card">
+        <div class="rank">#2</div>
+        <div class="title">G.D.N.</div>
+        <div class="info">Netflix · Tamil + dubbed · <span class="genre">Biographical drama</span></div>
+        <div class="rating"><strong>IMDb 8.5</strong> · 1.2K votes</div>
+        <div class="desc">Madhavan stars as inventor G.D. Naidu in a story about innovation, ambition and conflict.</div>
+      </article>
+      <article class="top-card">
+        <div class="rank">#3</div>
+        <div class="title">Mayday</div>
+        <div class="info">Apple TV+ · English · <span class="genre">Cold War action comedy</span></div>
+        <div class="rating"><strong>RT 83%</strong> · 54 reviews</div>
+        <div class="desc">A downed U.S. pilot and a disillusioned ex-KGB agent team up in a fast retro adventure.</div>
+      </article>
+    </section>
+
+    <h2 class="section-title">🇮🇳 Indian OTT releases</h2>
+    <section class="group">
+      <article class="card">
+        <div class="title-row"><div class="title">G.D.N.</div><span class="verdict watch">WATCH</span></div>
+        <div class="info">Netflix · Sep 4 · Tamil + dubbed</div>
+        <div class="info genre">Biographical drama</div>
+        <div class="rating"><strong>IMDb 8.5</strong> · 1.2K votes</div>
+        <div class="desc">R. Madhavan plays inventor G.D. Naidu, tracing his innovations, industrial rise and clashes with authorities.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">DC</div><span class="verdict watch">WATCH</span></div>
+        <div class="info">Sun NXT · Sep 4 · Tamil + dubbed</div>
+        <div class="info genre">Romantic action thriller</div>
+        <div class="rating"><strong>IMDb 8.3</strong> · 5.1K votes</div>
+        <div class="desc">A troubled man faces a murder investigation, stolen weapons and criminal gangs while fighting for survival and revenge.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Dhamaal 4</div><span class="verdict watch">WATCH</span></div>
+        <div class="info">Netflix · Sep 4 · Hindi</div>
+        <div class="info genre">Action comedy / slapstick</div>
+        <div class="rating"><strong>IMDb 8.1</strong> · 36K votes</div>
+        <div class="desc">A bumbling thief and an eccentric group race through chaos and mishaps while hunting for hidden treasure.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Korean Kanakaraju</div><span class="verdict try">TRY</span></div>
+        <div class="info">Netflix · Sep 4 · Telugu + dubbed</div>
+        <div class="info genre">Horror comedy</div>
+        <div class="rating"><strong>IMDb 7.7</strong> · 2.4K votes</div>
+        <div class="desc">A Telugu man becomes possessed by a Korean spirit and is pulled into a comic journey to fulfill its unfinished wish.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Unmadham</div><span class="verdict maybe">MAYBE</span></div>
+        <div class="info">SonyLIV · Sep 4 · Malayalam + dubbed</div>
+        <div class="info genre">Crime mystery / psychological thriller</div>
+        <div class="rating"><strong>IMDb 6.3</strong> · 1.2K votes</div>
+        <div class="desc">A weary police officer reopens a long-abandoned death case whose disturbing reputation blurs reality and superstition.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">The Court</div><span class="verdict new">NEW</span></div>
+        <div class="info">JioHotstar · Sep 4 · Tamil</div>
+        <div class="info genre">Courtroom / family drama</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A gifted young lawyer with a stammer takes on a major legal fight that puts her directly against her celebrated father.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Jagamae Sangeetham</div><span class="verdict new">NEW</span></div>
+        <div class="info">Prime Video · Sep 4 · Telugu / Tamil</div>
+        <div class="info genre">Music / family drama</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A young Carnatic prodigy wrestles with family pressure, financial strain and tradition after an unexpected creative partnership.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Puratawn</div><span class="verdict new">NEW</span></div>
+        <div class="info">Hoichoi · Sep 4 · Bengali</div>
+        <div class="info genre">Social / family drama</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A daughter returns home for her mother’s 80th birthday and confronts fading memories, old wounds and family truths.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Gandhari</div><span class="verdict wait">WAIT</span></div>
+        <div class="info">Netflix · Sep 3 · Hindi + dubbed</div>
+        <div class="info genre">Action thriller / mystery</div>
+        <div class="rating"><strong>NR</strong> · reviews still early</div>
+        <div class="desc">After losing her eyesight and her daughter in a kidnapping, a mother launches a relentless hunt for those responsible.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Ananthan Kaadu</div><span class="verdict new">NEW</span></div>
+        <div class="info">Prime Video / ManoramaMax · Sep 2 · Malayalam + dubbed</div>
+        <div class="info genre">Action thriller</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A tense action-driven story built around danger, pursuit and survival, led by Arya in a multilingual release.</div>
+      </article>
+    </section>
+
+    <h2 class="section-title">🇺🇸 American / English OTT releases</h2>
+    <section class="group">
+      <article class="card">
+        <div class="title-row"><div class="title">Mayday</div><span class="verdict watch">WATCH</span></div>
+        <div class="info">Apple TV+ · Sep 4 · English</div>
+        <div class="info genre">Cold War action comedy</div>
+        <div class="rating"><strong>RT 83%</strong> · 54 reviews</div>
+        <div class="desc">A downed U.S. pilot in Soviet territory is rescued by a disillusioned ex-KGB agent in a retro buddy adventure.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">The Gentlemen — Season 2</div><span class="verdict watch">WATCH</span></div>
+        <div class="info">Netflix · Sep 3 · English</div>
+        <div class="info genre">Crime comedy / drama</div>
+        <div class="rating"><strong>RT 89%</strong> · early sample</div>
+        <div class="desc">Eddie and Susie expand their criminal empire across Europe as new mob pressure and dangerous power plays close in.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">The Mandalorian and Grogu</div><span class="verdict watch">WATCH</span></div>
+        <div class="info">Disney+ · This week · English</div>
+        <div class="info genre">Sci-fi action adventure</div>
+        <div class="rating"><strong>IMDb 6.8</strong> · 96K | RT 60% / Audience 86%</div>
+        <div class="desc">Din Djarin and Grogu are recruited by the New Republic for another mission amid the remnants of the Empire.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Chad Powers — Season 2</div><span class="verdict try">TRY</span></div>
+        <div class="info">Hulu · Sep 3 · English</div>
+        <div class="info genre">Sports comedy / drama</div>
+        <div class="rating"><strong>IMDb 7.5</strong> overall · RT S2 100%*</div>
+        <div class="desc">A disgraced quarterback continues hiding behind his Chad Powers persona as his double life creates bigger risks.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Scary Movie (2026)</div><span class="verdict skip">SKIP</span></div>
+        <div class="info">Paramount+ · Sep 3 · English</div>
+        <div class="info genre">Horror comedy / parody</div>
+        <div class="rating"><strong>IMDb 4.9</strong> · 52K votes</div>
+        <div class="desc">Cindy, Brenda, Shorty and Ray reunite when a new masked killer drags the old group back into absurd horror-movie chaos.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">Fuze</div><span class="verdict try">TRY</span></div>
+        <div class="info">HBO Max · Sep 4 · English</div>
+        <div class="info genre">Crime / action thriller</div>
+        <div class="rating"><strong>RT 72%</strong> · 112 reviews</div>
+        <div class="desc">An unexploded WWII bomb triggers a London evacuation while criminals exploit the chaos to execute a precision bank heist.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">The Runner</div><span class="verdict new">NEW</span></div>
+        <div class="info">Prime Video · Sep 2 · English</div>
+        <div class="info genre">Psychological action thriller</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A London lawyer’s son is kidnapped during her morning run, forcing her to keep moving and obey a caller’s instructions.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">The Grand Tour</div><span class="verdict new">NEW</span></div>
+        <div class="info">Prime Video · Sep 4 · English</div>
+        <div class="info genre">Motoring / travel reality</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A new trio of hosts tackles automotive challenges, global road trips and oversized stunts across six episodes.</div>
+      </article>
+
+      <article class="card">
+        <div class="title-row"><div class="title">The Program: Texas Tech</div><span class="verdict new">NEW</span></div>
+        <div class="info">Paramount+ · Sep 4 · English</div>
+        <div class="info genre">Sports docuseries</div>
+        <div class="rating"><strong>NR</strong></div>
+        <div class="desc">A behind-the-scenes look at Texas Tech football’s turbulent 2026 offseason, roster rebuild and quarterback controversy.</div>
+      </article>
+    </section>
+
+    <div class="divider"></div>
+    <div class="note">
+      <strong>Rating note:</strong> NR means there are not enough reliable ratings yet. Early Rotten Tomatoes samples are labeled as such. IMDb vote count matters—a score backed by tens of thousands of votes is usually more useful than a very early score.
+      <br><br>
+      *Chad Powers S2's 100% Rotten Tomatoes score is based on a very small early critic sample.
+    </div>
+
+    <footer>Weekend OTT Drop · Sep 4–6, 2026</footer>
+  </main>
 </body>
 </html>
