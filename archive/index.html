@@ -6,182 +6,30 @@
   <meta name="theme-color" content="#f5f1e8">
   <title>Weekend OTT Archive</title>
   <style>
-    :root{
-      --paper:#f5f1e8;
-      --ink:#171717;
-      --muted:#6b675f;
-      --line:#cfc8bb;
-      --red:#b52a2a;
-    }
+    :root{--paper:#f5f1e8;--ink:#171717;--muted:#6b675f;--line:#cfc8bb;--red:#b52a2a;--blue:#275a8a}
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:var(--paper);
-      color:var(--ink);
-      font-family:Arial,Helvetica,sans-serif;
-      line-height:1.45;
-      -webkit-font-smoothing:antialiased;
-    }
-    .page{
-      width:min(820px,100%);
-      margin:0 auto;
-      padding:0 18px 56px;
-    }
-    header{
-      padding:18px 0 12px;
-      border-bottom:3px solid var(--ink);
-    }
-    .masthead-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
-    .brand{
-      font-family:Georgia,"Times New Roman",serif;
-      font-weight:700;
-      font-size:1.55rem;
-      letter-spacing:-.035em;
-      white-space:nowrap;
-    }
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:7px;
-      flex:0 0 auto;
-    }
-    .nav-link,
-    .share{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:40px;
-      padding:8px 11px;
-      border:1px solid var(--line);
-      border-radius:3px;
-      background:transparent;
-      color:var(--ink);
-      text-decoration:none;
-      font-weight:700;
-      font-size:.79rem;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .nav-link.active{
-      background:var(--ink);
-      border-color:var(--ink);
-      color:var(--paper);
-    }
-    .share{
-      border-color:var(--ink);
-    }
-    .nav-link:focus-visible,
-    .share:focus-visible{
-      outline:2px solid #275a8a;
-      outline-offset:2px;
-    }
-    .toast{
-      position:fixed;
-      left:50%;
-      bottom:22px;
-      transform:translateX(-50%) translateY(20px);
-      background:var(--ink);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:4px;
-      font-size:.8rem;
-      opacity:0;
-      pointer-events:none;
-      transition:.2s ease;
-      z-index:30;
-    }
-    .toast.show{
-      opacity:1;
-      transform:translateX(-50%) translateY(0);
-    }
-    @media(max-width:480px){
-      .masthead-row{flex-wrap:wrap}
-      .header-actions{
-        width:100%;
-        justify-content:flex-start;
-      }
-    }
-    .hero{
-      padding:34px 0 26px;
-      border-bottom:1px solid var(--line);
-    }
-    .kicker{
-      color:var(--red);
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.11em;
-      font-size:.73rem;
-      margin-bottom:8px;
-    }
-    h1{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:clamp(2.3rem,9vw,4.5rem);
-      line-height:.97;
-      letter-spacing:-.05em;
-      margin:0;
-    }
-    .dek{
-      color:#45413b;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1rem;
-      margin:14px 0 0;
-    }
-    .month{
-      margin-top:30px;
-    }
-    .month h2{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1.5rem;
-      margin:0;
-      padding-bottom:8px;
-      border-bottom:2px solid var(--ink);
-    }
-    .edition{
-      display:grid;
-      grid-template-columns:110px minmax(0,1fr) auto;
-      gap:14px;
-      align-items:start;
-      padding:18px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .date{
-      color:var(--muted);
-      font-size:.8rem;
-      text-transform:uppercase;
-      letter-spacing:.06em;
-    }
-    .title{
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:1.1rem;
-      font-weight:700;
-    }
-    .summary{
-      color:#4d4841;
-      font-family:Georgia,"Times New Roman",serif;
-      font-size:.92rem;
-      margin-top:5px;
-    }
-    .open{
-      color:var(--ink);
-      text-decoration:none;
-      font-weight:800;
-      font-size:.78rem;
-      white-space:nowrap;
-      border-bottom:1px solid var(--ink);
-    }
-    @media(max-width:560px){
-      .edition{
-        grid-template-columns:1fr auto;
-      }
-      .date{
-        grid-column:1 / -1;
-      }
-    }
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45;-webkit-font-smoothing:antialiased}
+    .page{width:min(820px,100%);margin:0 auto;padding:0 18px 56px}
+    header{padding:18px 0 12px;border-bottom:3px solid var(--ink)}
+    .masthead-row{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:1.55rem;letter-spacing:-.035em;white-space:nowrap}
+    .header-actions{display:flex;align-items:center;gap:7px}
+    .nav-link,.share{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 11px;border:1px solid var(--line);border-radius:3px;background:transparent;color:var(--ink);text-decoration:none;font-weight:700;font-size:.79rem;cursor:pointer;white-space:nowrap}
+    .nav-link.active{background:var(--ink);border-color:var(--ink);color:var(--paper)}.share{border-color:var(--ink)}
+    .hero{padding:34px 0 26px;border-bottom:1px solid var(--line)}
+    .kicker{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.11em;font-size:.73rem;margin-bottom:8px}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.3rem,9vw,4.5rem);line-height:.97;letter-spacing:-.05em;margin:0}
+    .dek{color:#45413b;font-family:Georgia,"Times New Roman",serif;font-size:1rem;margin:14px 0 0}
+    .month{margin-top:30px}.month h2{font-family:Georgia,"Times New Roman",serif;font-size:1.5rem;margin:0;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+    .edition{display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:14px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+    .date{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em}
+    .title{font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:700}
+    .summary{color:#4d4841;font-family:Georgia,"Times New Roman",serif;font-size:.92rem;margin-top:5px}
+    .open{color:var(--ink);text-decoration:none;font-weight:800;font-size:.78rem;white-space:nowrap;border-bottom:1px solid var(--ink)}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 14px;border-radius:4px;font-size:.8rem;opacity:0;pointer-events:none;transition:.2s ease}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:560px){.edition{grid-template-columns:1fr auto}.date{grid-column:1/-1}}
+    @media(max-width:480px){.masthead-row{flex-wrap:wrap}.header-actions{width:100%;justify-content:flex-start}}
   </style>
 </head>
 <body>
@@ -196,60 +44,36 @@
         </div>
       </div>
     </header>
-
     <section class="hero">
       <div class="kicker">Archive</div>
       <h1>Past weekend guides.</h1>
-      <p class="dek">Every edition stays available here, even after the homepage moves on to the next weekend.</p>
+      <p class="dek">Every edition stays available here even after the homepage moves on to the next weekend.</p>
     </section>
-
     <section class="month">
       <h2>September 2026</h2>
-
       <article class="edition">
         <div class="date">Sep 4–6</div>
         <div>
           <div class="title">Weekend OTT — Sep 4–6, 2026</div>
-          <div class="summary">The Gentlemen S2 · G.D.N. · Mayday · Indian + English OTT releases</div>
+          <div class="summary">38 verified drops · 20 Indian + 18 U.S./English · The Gentlemen S2 · G.D.N. · Mayday · Pagida Kali</div>
         </div>
         <a class="open" href="/archive/2026-09-04/">Open →</a>
       </article>
     </section>
   </div>
-
   <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
-
   <script>
     (() => {
-      const shareButton = document.getElementById('shareButton');
-      const toast = document.getElementById('toast');
-      const archiveUrl = 'https://ott.rudraraju.dev/archive/';
-
-      function showToast(message){
-        toast.textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1800);
-      }
-
-      shareButton.addEventListener('click', async () => {
-        const data = {
-          title: 'Weekend OTT Archive',
-          text: 'Browse past Weekend OTT streaming guides.',
-          url: archiveUrl
-        };
-
-        try {
-          if (navigator.share) {
-            await navigator.share(data);
-          } else if (navigator.clipboard) {
-            await navigator.clipboard.writeText(archiveUrl);
-            showToast('Link copied');
-          } else {
-            showToast('Copy the page address to share');
-          }
-        } catch (err) {
-          if (err && err.name !== 'AbortError') showToast('Could not share');
-        }
+      const shareButton=document.getElementById('shareButton'), toast=document.getElementById('toast');
+      const archiveUrl='https://ott.rudraraju.dev/archive/';
+      function showToast(m){toast.textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
+      shareButton.addEventListener('click',async()=>{
+        const data={title:'Weekend OTT Archive',text:'Browse past Weekend OTT streaming guides.',url:archiveUrl};
+        try{
+          if(navigator.share) await navigator.share(data);
+          else if(navigator.clipboard){await navigator.clipboard.writeText(archiveUrl);showToast('Link copied')}
+          else showToast('Copy the page address to share');
+        }catch(err){if(err&&err.name!=='AbortError')showToast('Could not share')}
       });
     })();
   </script>
