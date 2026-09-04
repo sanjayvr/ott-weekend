@@ -53,16 +53,34 @@
       letter-spacing:-.035em;
       white-space:nowrap;
     }
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex:0 0 auto;
+    }
+    .archive-link,
+    .share{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:8px 13px;
+      font-weight:700;
+      font-size:.82rem;
+      border-radius:3px;
+    }
+    .archive-link{
+      color:var(--ink);
+      text-decoration:none;
+      border:1px solid var(--line);
+      background:transparent;
+    }
     .share{
       border:1px solid var(--ink);
       background:transparent;
       color:var(--ink);
-      min-height:42px;
-      padding:8px 14px;
-      font-weight:700;
-      font-size:.82rem;
       cursor:pointer;
-      border-radius:3px;
     }
     .edition{
       display:flex;
@@ -420,7 +438,10 @@
     <header class="masthead">
       <div class="masthead-row">
         <div class="brand">Weekend OTT</div>
-        <button class="share" id="shareButton" type="button">Share</button>
+        <div class="header-actions">
+          <a class="archive-link" href="/archive/">Archive</a>
+          <button class="share" id="shareButton" type="button">Share</button>
+        </div>
       </div>
       <div class="edition">
         <span>Sep 4–6, 2026</span>
