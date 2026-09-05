@@ -1,4 +1,4 @@
-const CACHE_VERSION = "weekend-watch-v2";
+const CACHE_VERSION = "weekend-watch-v4";
 const APP_SHELL = [
   "/manifest.webmanifest",
   "/offline.html",
