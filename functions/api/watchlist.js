@@ -82,7 +82,7 @@ async function auth(context) {
 async function listInfo(db, listHash) {
   return db
     .prepare(`
-      SELECT list_hash, display_name, created_at, updated_at
+      SELECT list_hash, list_id, display_name, created_at, updated_at
       FROM watchlists
       WHERE list_hash = ?
       LIMIT 1
@@ -231,10 +231,10 @@ export async function onRequestPost(context) {
     await a.db
       .prepare(`
         INSERT INTO watchlists
-          (list_hash, display_name, created_at, updated_at)
-        VALUES (?, ?, ?, ?)
+          (list_hash, list_id, display_name, created_at, updated_at)
+        VALUES (?, ?, ?, ?, ?)
       `)
-      .bind(a.listHash, displayName, now, now)
+      .bind(a.listHash, crypto.randomUUID(), displayName, now, now)
       .run();
 
     return json({
