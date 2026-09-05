@@ -241,6 +241,104 @@
       .release-poster .poster-shell{width:86px}
     }
 
+
+    /* Save for Later */
+    .saved-count{
+      display:inline-flex;
+      min-width:1.45em;
+      height:1.45em;
+      padding:0 .35em;
+      align-items:center;
+      justify-content:center;
+      margin-left:.28rem;
+      border:1px solid currentColor;
+      border-radius:999px;
+      font-size:.68em;
+      line-height:1;
+      vertical-align:.08em;
+      opacity:.82;
+    }
+    .save-button{
+      appearance:none;
+      border:1px solid rgba(23,23,23,.38);
+      background:transparent;
+      color:var(--ink);
+      border-radius:999px;
+      min-height:32px;
+      padding:6px 10px;
+      font:700 .73rem/1 Arial,Helvetica,sans-serif;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:background .16s ease,border-color .16s ease,transform .16s ease;
+    }
+    .save-button:hover{
+      background:rgba(23,23,23,.055);
+      border-color:rgba(23,23,23,.62);
+    }
+    .save-button:active{transform:scale(.97)}
+    .save-button[aria-pressed="true"]{
+      border-color:var(--red);
+      color:var(--red);
+      background:rgba(181,42,42,.055);
+    }
+    .release > .save-button{
+      grid-column:3;
+      grid-row:2;
+      justify-self:end;
+      align-self:start;
+    }
+    .release-summary{
+      grid-column:2 / 3;
+      grid-row:2;
+    }
+    .top-pick > .save-button{
+      margin-top:10px;
+      width:max-content;
+    }
+    .saved-source{
+      grid-column:2 / -1;
+      color:var(--muted);
+      font:700 .7rem/1.35 Arial,Helvetica,sans-serif;
+    }
+    .saved-source a{
+      color:inherit;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+    .saved-empty-card{
+      padding:30px 0 26px;
+      border-bottom:1px solid var(--line);
+    }
+    .saved-empty-title{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.35rem;
+      font-weight:700;
+      letter-spacing:-.025em;
+    }
+    .saved-empty-copy{
+      color:var(--muted);
+      margin-top:7px;
+      max-width:520px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:.94rem;
+    }
+    @media(max-width:520px){
+      .release > .save-button{
+        grid-column:2;
+        grid-row:3;
+        justify-self:start;
+      }
+      .release-summary{
+        grid-column:2;
+        grid-row:4;
+      }
+      .release-poster{grid-row:1 / span 4}
+      .saved-source{
+        grid-column:2;
+        grid-row:5;
+      }
+    }
+
   </style>
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#f5f1e8">
@@ -253,7 +351,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
 
 </head>
-<body>
+<body data-edition="2026-09-04" data-edition-label="Sep 4–6, 2026" data-permalink="https://ott.rudraraju.dev/archive/2026-09-04/">
   <div class="page">
     <header class="masthead">
       <div class="masthead-row">
@@ -284,6 +382,7 @@
         <button class="tab" type="button" role="tab" id="tab-india" aria-controls="panel-india" aria-selected="false">Indian</button>
         <button class="tab" type="button" role="tab" id="tab-us" aria-controls="panel-us" aria-selected="false">U.S. / English</button>
         <button class="tab" type="button" role="tab" id="tab-tonight" aria-controls="panel-tonight" aria-selected="false">Tonight</button>
+        <button class="tab" type="button" role="tab" id="tab-saved" aria-controls="panel-saved" aria-selected="false">Saved<span class="saved-count" id="savedCount" hidden>0</span></button>
       </div>
       <div class="filter-bar" id="filterBar" aria-label="Filter releases by type" hidden>
         <span class="filter-label">Filter</span>
@@ -299,7 +398,7 @@
       <section class="panel" id="panel-top" role="tabpanel" aria-labelledby="tab-top">
         <div class="panel-head"><h2>Top 3</h2><div class="panel-note">Weekend picks</div></div>
         <div class="top-picks-grid">
-<article class="top-pick" data-kind="show">
+<article class="top-pick" data-kind="show" data-save-id="the-gentlemen-season-2-show-2026">
           <div class="top-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:36" data-poster="/poster?title=The+Gentlemen+%E2%80%94+Season+2&amp;kind=series">
               <div class="poster-fallback">The Gentlemen</div>
@@ -317,7 +416,7 @@
       </div>
             <div class="summary">Eddie and Susie push their criminal operation into a more dangerous phase as new rivals and power struggles close in.</div>
         </article>
-        <article class="top-pick" data-kind="movie">
+        <article class="top-pick" data-kind="movie" data-save-id="g-d-n-movie-2026">
           <div class="top-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:153" data-poster="/poster?title=G.D.N.&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">G.D.N.</div>
@@ -335,7 +434,7 @@
       </div>
             <div class="summary">R. Madhavan stars as inventor and industrialist G.D. Naidu in a biographical drama about ambition, innovation and conflict.</div>
         </article>
-        <article class="top-pick" data-kind="movie">
+        <article class="top-pick" data-kind="movie" data-save-id="mayday-movie-2026">
           <div class="top-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:142" data-poster="/poster?title=Mayday&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Mayday</div>
@@ -362,7 +461,7 @@
         <div class="filtered-empty" hidden>No releases match this filter.</div>
         <div class="legend"><strong>Labels:</strong> Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = taste-dependent · Too New to Rate = not enough data · Wait for Reviews = early feedback unclear.</div>
         
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="g-d-n-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:153" data-poster="/poster?title=G.D.N.&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">G.D.N.</div>
@@ -382,7 +481,7 @@
           <div class="verdict watch">Recommended</div>
           <div class="release-summary">R. Madhavan stars as inventor and industrialist G.D. Naidu in a biographical drama about ambition, innovation and conflict.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="dc-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:170" data-poster="/poster?title=DC&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">DC</div>
@@ -402,7 +501,7 @@
           <div class="verdict watch">Recommended</div>
           <div class="release-summary">A troubled man is pulled into murder, stolen weapons and gang violence while fighting for survival and revenge.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="dhamaal-4-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:103" data-poster="/poster?title=Dhamaal+4&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Dhamaal 4</div>
@@ -422,7 +521,7 @@
           <div class="verdict watch">Recommended</div>
           <div class="release-summary">The chaotic ensemble returns for another broad comedy built around greed, mishaps and an escalating treasure hunt.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="korean-kanakaraju-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:162" data-poster="/poster?title=Korean+Kanakaraju&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Korean Kanakaraju</div>
@@ -442,7 +541,7 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">A Telugu man becomes entangled with a Korean spirit, turning an unfinished supernatural mission into a comic adventure.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="unmadham-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:92" data-poster="/poster?title=Unmadham&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Unmadham</div>
@@ -462,7 +561,7 @@
           <div class="verdict maybe">Mixed / Niche</div>
           <div class="release-summary">A police officer reopens an old death investigation whose disturbing reputation begins to blur crime, fear and superstition.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="pallaburusu-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:8" data-poster="/poster?title=Pallaburusu&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Pallaburusu</div>
@@ -482,7 +581,7 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">A rural Telangana father takes his son to court over a neglected toothbrush request, and the tiny dispute fractures the whole family.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="arulvaan-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:291" data-poster="/poster?title=Arulvaan&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Arulvaan</div>
@@ -502,7 +601,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A determined district collector fights bureaucratic and social barriers to educate a tribal girl and bring schooling to her forest community.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="ananthan-kaadu-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:252" data-poster="/poster?title=Ananthan+Kaadu&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Ananthan Kaadu</div>
@@ -522,7 +621,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">Arya leads a multilingual action thriller built around danger, pursuit and survival in a volatile setting.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="puratawn-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:239" data-poster="/poster?title=Puratawn&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Puratawn</div>
@@ -542,7 +641,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A woman returns to her ancestral home for her mother&#x27;s 80th birthday and must confront her mother&#x27;s deteriorating memory.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="pagida-kali-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:349" data-poster="/poster?title=Pagida+Kali&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Pagida Kali</div>
@@ -562,7 +661,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A murder in Kerala is followed by a child&#x27;s disappearance, pushing an investigation across state borders as the mystery deepens.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="gandhari-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:248" data-poster="/poster?title=Gandhari&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Gandhari</div>
@@ -582,7 +681,7 @@
           <div class="verdict wait">Wait for Reviews</div>
           <div class="release-summary">After losing her eyesight and her daughter in a kidnapping, a mother takes the search into her own hands and hunts for the truth.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="the-yellow-elephant-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:103" data-poster="/poster?title=The+Yellow+Elephant&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">The Yellow Elephant</div>
@@ -602,7 +701,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A working elephant and his mahout face upheaval after activists document the animal&#x27;s use at a timber yard in southern Tamil Nadu.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="the-court-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:221" data-poster="/poster?title=The+Court&amp;kind=series">
               <div class="poster-fallback">The Court</div>
@@ -622,7 +721,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A gifted young lawyer takes on a high-stakes legal fight that brings her into direct conflict with her celebrated father.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="jagamae-sangeetham-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:347" data-poster="/poster?title=Jagamae+Sangeetham&amp;kind=series">
               <div class="poster-fallback">Jagamae Sangeetham</div>
@@ -642,7 +741,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A young Carnatic prodigy shoulders his family&#x27;s legacy and finances while an unexpected creative partnership challenges tradition.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="gnyapakalu-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:153" data-poster="/poster?title=Gnyapakalu&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Gnyapakalu</div>
@@ -674,7 +773,7 @@
         <div class="filtered-empty" hidden>No releases match this filter.</div>
         <div class="legend"><strong>Labels:</strong> Recommended = strong pick · Worth Watching = solid option · Mixed / Niche = taste-dependent · Too New to Rate = not enough data · Skip = weak current signal.</div>
         
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="untold-raygun-breaking-badly-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:171" data-poster="/poster?title=Untold+Raygun%3A+Breaking+Badly&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Untold Raygun: Breaking Badly</div>
@@ -694,7 +793,7 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">Australian breaker Rachael &#x27;Raygun&#x27; Gunn revisits her unlikely Olympic path, viral performance and the backlash that followed.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="the-varnell-hill-show-season-1-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:229" data-poster="/poster?title=The+Varnell+Hill+Show+%E2%80%94+Season+1&amp;kind=series">
               <div class="poster-fallback">The Varnell Hill Show</div>
@@ -714,7 +813,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A once-famous late-night host fights to stay relevant while old-school star power collides with new corporate control behind the scenes.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="turning-point-generation-9-11-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:348" data-poster="/poster?title=Turning+Point%3A+Generation+9%2F11&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Turning Point: Generation 9/11</div>
@@ -734,7 +833,7 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">Twenty-five years later, survivors, journalists, Afghans and U.S. Marines examine how 9/11 reshaped an entire generation.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="the-runner-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:177" data-poster="/poster?title=The+Runner&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">The Runner</div>
@@ -754,7 +853,7 @@
           <div class="verdict skip">Skip</div>
           <div class="release-summary">A London lawyer&#x27;s son is kidnapped during her morning run, forcing her to keep moving and obey a caller&#x27;s escalating commands.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="star-wars-the-mandalorian-and-grogu-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:73" data-poster="/poster?title=Star+Wars%3A+The+Mandalorian+and+Grogu&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Star Wars: The Mandalorian and Grogu</div>
@@ -774,7 +873,7 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">Din Djarin and Grogu join the New Republic on another mission as Imperial remnants continue to threaten the galaxy.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="9-11-united-we-stand-25-years-later-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:259" data-poster="/poster?title=9%2F11%3A+United+We+Stand+%E2%80%94+25+Years+Later&amp;kind=series">
               <div class="poster-fallback">9/11: United We Stand — 25 Years Later</div>
@@ -794,7 +893,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">Michael Strahan leads a two-hour look at the sports, music, media and community forces that helped people heal after 9/11.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="the-gentlemen-season-2-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:36" data-poster="/poster?title=The+Gentlemen+%E2%80%94+Season+2&amp;kind=series">
               <div class="poster-fallback">The Gentlemen</div>
@@ -814,7 +913,7 @@
           <div class="verdict watch">Recommended</div>
           <div class="release-summary">Eddie and Susie push their criminal operation into a more dangerous phase as new rivals and power struggles close in.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="chad-powers-season-2-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:259" data-poster="/poster?title=Chad+Powers+%E2%80%94+Season+2&amp;kind=series">
               <div class="poster-fallback">Chad Powers</div>
@@ -834,7 +933,7 @@
           <div class="verdict try">Worth Watching</div>
           <div class="release-summary">The disgraced quarterback keeps hiding behind his Chad Powers identity as the deception creates bigger personal and football risks.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="clash-of-the-thundermans-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:39" data-poster="/poster?title=Clash+of+the+Thundermans&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Clash of the Thundermans</div>
@@ -854,7 +953,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">Chloe develops an unpredictable superpower, splitting the Thunderman family over whether she should be sent away for training.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="scary-movie-2026-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:85" data-poster="/poster?title=Scary+Movie+%282026%29&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Scary Movie</div>
@@ -874,7 +973,7 @@
           <div class="verdict skip">Skip</div>
           <div class="release-summary">Cindy, Brenda, Shorty and Ray are pulled back together when another masked killer starts targeting the old group.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="mayday-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:142" data-poster="/poster?title=Mayday&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Mayday</div>
@@ -895,7 +994,7 @@
           <div class="release-summary">A U.S. Navy pilot crashes behind Soviet lines in 1987 and forms an unlikely partnership with an eccentric former KGB agent.</div>
         </article>
         
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="teenage-wasteland-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:266" data-poster="/poster?title=Teenage+Wasteland&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Teenage Wasteland</div>
@@ -915,7 +1014,7 @@
           <div class="verdict watch">Recommended</div>
           <div class="release-summary">Students who exposed a toxic-waste conspiracy with a DIY film in 1991 reunite decades later to reckon with what they uncovered.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="signal-one-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:258" data-poster="/poster?title=Signal+One&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Signal One</div>
@@ -935,7 +1034,7 @@
           <div class="verdict maybe">Mixed / Niche</div>
           <div class="release-summary">A computer scientist joins a billionaire&#x27;s isolated project to contact extraterrestrial life, only to discover the danger of making contact.</div>
         </article>
-        <article class="release" data-kind="movie">
+        <article class="release" data-kind="movie" data-save-id="fuze-movie-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:199" data-poster="/poster?title=Fuze&amp;kind=movie&amp;year=2026">
               <div class="poster-fallback">Fuze</div>
@@ -956,7 +1055,7 @@
           <div class="release-summary">An unexploded WWII bomb forces a London evacuation while criminals exploit the chaos to execute a precision bank heist.</div>
         </article>
         
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="the-program-texas-tech-season-1-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:250" data-poster="/poster?title=The+Program%3A+Texas+Tech+%E2%80%94+Season+1&amp;kind=series">
               <div class="poster-fallback">The Program: Texas Tech</div>
@@ -976,7 +1075,7 @@
           <div class="verdict new">Too New to Rate</div>
           <div class="release-summary">A four-part inside look at Texas Tech football&#x27;s turbulent 2026 offseason, roster rebuild and pressure around quarterback Brendan Sorsby.</div>
         </article>
-        <article class="release" data-kind="show">
+        <article class="release" data-kind="show" data-save-id="instadocs-the-decoy-plane-show-2026">
           <div class="release-poster" aria-hidden="true">
             <div class="poster-shell" style="--poster-hue:104" data-poster="/poster?title=Instadocs%3A+The+Decoy+Plane&amp;kind=series">
               <div class="poster-fallback">Instadocs: The Decoy Plane</div>
@@ -1012,6 +1111,20 @@
         </div>
         <p class="note"><strong>Scope:</strong> new OTT originals, scripted series/new seasons, documentaries/docuseries, and recent theatrical films making a meaningful subscription-streaming arrival. We exclude theatrical-only releases, PVOD-only releases, ordinary weekly episodes, old catalog additions, stand-up specials, and reality TV/reality competition formats. Sunday Sep 6 launches are included because this is the weekend edition.</p>
       </section>
+
+      <section class="panel" id="panel-saved" role="tabpanel" aria-labelledby="tab-saved" hidden>
+        <div class="panel-head">
+          <h2>Saved for later</h2>
+          <div class="panel-note">Stored on this device</div>
+        </div>
+        <div id="savedEmpty" class="saved-empty-card" hidden>
+          <div class="saved-empty-title">Nothing saved yet.</div>
+          <div class="saved-empty-copy">Tap “+ Save” on any movie or series and it will stay here even after the homepage moves on to next weekend.</div>
+        </div>
+        <div id="savedList" class="saved-list"></div>
+        <p class="note"><strong>Private by design:</strong> this watchlist is stored only in this browser. It is not uploaded anywhere and does not sync between devices.</p>
+      </section>
+
     </main>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite">Link copied</div>
@@ -1034,7 +1147,8 @@
         const items = Array.from(panel.querySelectorAll('[data-kind]'));
         let visibleCount = 0;
         items.forEach(item => {
-          const show = activeKind === 'all' || item.dataset.kind === activeKind;
+          const catalogPanel = panel.id === 'panel-india' || panel.id === 'panel-us';
+          const show = !catalogPanel || activeKind === 'all' || item.dataset.kind === activeKind;
           item.hidden = !show;
           if (show) visibleCount++;
         });
@@ -1123,6 +1237,264 @@
       });
     })();
   </script>
+
+  <script>
+    (() => {
+      const STORAGE_KEY = "weekendWatch.saved.v1";
+      const savedList = document.getElementById("savedList");
+      const savedEmpty = document.getElementById("savedEmpty");
+      const savedCount = document.getElementById("savedCount");
+      if (!savedList || !savedEmpty || !savedCount) return;
+
+      function readSaved() {
+        try {
+          const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+          return Array.isArray(value) ? value : [];
+        } catch (_) {
+          return [];
+        }
+      }
+
+      function writeSaved(items) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+          return true;
+        } catch (_) {
+          return false;
+        }
+      }
+
+      function cardTitle(card) {
+        return (
+          card.querySelector(".release-title")?.textContent ||
+          card.querySelector(".pick-title")?.textContent ||
+          ""
+        ).trim();
+      }
+
+      function richCardFor(id) {
+        return Array.from(document.querySelectorAll("article.release"))
+          .find(card => card.dataset.saveId === id) ||
+          Array.from(document.querySelectorAll("article.top-pick"))
+            .find(card => card.dataset.saveId === id);
+      }
+
+      function serialize(card) {
+        const id = card.dataset.saveId;
+        const source = richCardFor(id) || card;
+        const verdict = source.querySelector(".verdict");
+
+        return {
+          id,
+          title: cardTitle(source) || cardTitle(card),
+          kind: source.dataset.kind || card.dataset.kind || "movie",
+          meta: (
+            source.querySelector(".release-meta")?.textContent ||
+            source.querySelector(".meta")?.textContent ||
+            ""
+          ).replace(/\s+/g, " ").trim(),
+          ratings: Array.from(source.querySelectorAll(".score")).map(score => ({
+            label: (score.querySelector(".score-label")?.textContent || "").trim(),
+            value: (score.querySelector(".score-value")?.textContent || "").trim()
+          })),
+          summary: (
+            source.querySelector(".release-summary")?.textContent ||
+            source.querySelector(".summary")?.textContent ||
+            ""
+          ).replace(/\s+/g, " ").trim(),
+          verdict: verdict?.textContent?.trim() || "Saved",
+          verdictClass: Array.from(verdict?.classList || [])
+            .find(name => name !== "verdict") || "",
+          poster: source.querySelector(".poster-shell")?.dataset.poster || "",
+          hue: source.querySelector(".poster-shell")?.style
+            .getPropertyValue("--poster-hue") || "30",
+          edition: document.body.dataset.edition || "",
+          editionLabel: document.body.dataset.editionLabel || "",
+          sourceUrl: document.body.dataset.permalink || location.href.split("#")[0],
+          savedAt: new Date().toISOString()
+        };
+      }
+
+      function toggle(card) {
+        const record = serialize(card);
+        const items = readSaved();
+        const index = items.findIndex(item => item.id === record.id);
+
+        if (index >= 0) items.splice(index, 1);
+        else items.unshift(record);
+
+        writeSaved(items);
+        renderSaved();
+        syncButtons();
+      }
+
+      function makeText(tag, className, value) {
+        const el = document.createElement(tag);
+        if (className) el.className = className;
+        el.textContent = value || "";
+        return el;
+      }
+
+      function makePoster(record) {
+        const wrap = document.createElement("div");
+        wrap.className = "release-poster";
+        wrap.setAttribute("aria-hidden", "true");
+
+        const shell = document.createElement("div");
+        shell.className = "poster-shell";
+        shell.style.setProperty("--poster-hue", record.hue || "30");
+
+        const fallback = makeText("div", "poster-fallback", record.title);
+        const caption = makeText("div", "poster-caption", record.title);
+        shell.append(fallback, caption);
+
+        if (record.poster) {
+          const img = document.createElement("img");
+          img.className = "poster-image";
+          img.alt = "";
+          img.loading = "lazy";
+          img.decoding = "async";
+          img.src = record.poster;
+          img.addEventListener("load", () => {
+            fallback.style.visibility = "hidden";
+          });
+          img.addEventListener("error", () => img.remove());
+          shell.prepend(img);
+        }
+
+        wrap.append(shell);
+        return wrap;
+      }
+
+      function makeRatings(record) {
+        const grid = document.createElement("div");
+        grid.className = "ratings-grid";
+
+        (record.ratings || []).forEach(rating => {
+          const score = document.createElement("span");
+          score.className = "score";
+          score.append(
+            makeText("span", "score-label", rating.label),
+            makeText("span", "score-value", rating.value)
+          );
+          grid.append(score);
+        });
+        return grid;
+      }
+
+      function makeSavedCard(record) {
+        const article = document.createElement("article");
+        article.className = "release";
+        article.dataset.kind = record.kind || "movie";
+        article.dataset.saveId = record.id;
+
+        article.append(makePoster(record));
+
+        const content = document.createElement("div");
+        content.className = "release-content";
+        content.append(
+          makeText("div", "release-title", record.title),
+          makeText("div", "release-meta", record.meta)
+        );
+        if (record.ratings?.length) content.append(makeRatings(record));
+        article.append(content);
+
+        article.append(
+          makeText(
+            "div",
+            `verdict ${record.verdictClass || ""}`.trim(),
+            record.verdict || "Saved"
+          )
+        );
+
+        const save = document.createElement("button");
+        save.type = "button";
+        save.className = "save-button";
+        save.dataset.saveToggle = "";
+        save.setAttribute("aria-pressed", "true");
+        save.textContent = "✓ Saved";
+        save.addEventListener("click", () => toggle(article));
+        article.append(save);
+
+        article.append(makeText("div", "release-summary", record.summary));
+
+        const source = document.createElement("div");
+        source.className = "saved-source";
+        source.append(
+          document.createTextNode(
+            `Saved from ${record.editionLabel || record.edition || "an earlier edition"} · `
+          )
+        );
+        const link = document.createElement("a");
+        link.href = record.sourceUrl || "/";
+        link.textContent = "View edition";
+        source.append(link);
+        article.append(source);
+
+        return article;
+      }
+
+      function renderSaved() {
+        const items = readSaved().sort((a, b) =>
+          String(b.savedAt || "").localeCompare(String(a.savedAt || ""))
+        );
+
+        savedList.replaceChildren();
+        savedEmpty.hidden = items.length !== 0;
+        items.forEach(item => savedList.append(makeSavedCard(item)));
+      }
+
+      function syncButtons() {
+        const ids = new Set(readSaved().map(item => item.id));
+
+        document.querySelectorAll("[data-save-toggle]").forEach(button => {
+          const card = button.closest("[data-save-id]");
+          if (!card) return;
+
+          const saved = ids.has(card.dataset.saveId);
+          button.setAttribute("aria-pressed", String(saved));
+          button.textContent = saved ? "✓ Saved" : "+ Save";
+          button.setAttribute(
+            "aria-label",
+            `${saved ? "Remove" : "Save"} ${cardTitle(card)} ${saved ? "from" : "to"} watchlist`
+          );
+        });
+
+        savedCount.textContent = String(ids.size);
+        savedCount.hidden = ids.size === 0;
+      }
+
+      document.querySelectorAll("article.release, article.top-pick").forEach(card => {
+        if (card.closest("#panel-saved")) return;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "save-button";
+        button.dataset.saveToggle = "";
+        button.setAttribute("aria-pressed", "false");
+        button.textContent = "+ Save";
+        button.addEventListener("click", () => toggle(card));
+
+        const summary = card.querySelector(".release-summary");
+        if (card.classList.contains("release") && summary) {
+          card.insertBefore(button, summary);
+        } else {
+          card.append(button);
+        }
+      });
+
+      renderSaved();
+      syncButtons();
+
+      window.addEventListener("storage", event => {
+        if (event.key === STORAGE_KEY) {
+          renderSaved();
+          syncButtons();
+        }
+      });
+    })();
+  </script>
+
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
