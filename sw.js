@@ -1,4 +1,4 @@
-const CACHE_VERSION = "weekend-watch-v4";
+const CACHE_VERSION = "weekend-watch-v5";
 const APP_SHELL = [
   "/manifest.webmanifest",
   "/offline.html",
@@ -57,8 +57,16 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // The poster endpoint already has its own Cloudflare/TMDB behavior.
-  if (url.origin === self.location.origin && url.pathname.startsWith("/poster")) {
+  // Dynamic endpoints manage their own caching and must never be put into
+  // the PWA Cache Storage. This is especially important for watchlist/admin API
+  // responses, which are user-specific and sent with Cache-Control: no-store.
+  if (
+    url.origin === self.location.origin &&
+    (
+      url.pathname.startsWith("/poster") ||
+      url.pathname.startsWith("/api/")
+    )
+  ) {
     return;
   }
 

@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#f5f1e8">
+  <title>Weekend Watch — Admin</title>
+  <style>
+    :root{
+      --paper:#f5f1e8;
+      --ink:#171717;
+      --muted:#6b675f;
+      --line:#cfc8bb;
+      --red:#b52a2a;
+      --green:#236b4b;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    main{
+      width:min(860px,100%);
+      margin:0 auto;
+      padding:24px 18px 60px;
+    }
+    header{
+      padding-bottom:14px;
+      border-bottom:3px solid var(--ink);
+    }
+    .brand{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.5rem;
+      font-weight:700;
+      letter-spacing:-.035em;
+    }
+    .kicker{
+      margin-top:5px;
+      color:var(--red);
+      font-size:.72rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+    }
+    h1{
+      margin:28px 0 8px;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(2.2rem,8vw,4rem);
+      line-height:.96;
+      letter-spacing:-.05em;
+    }
+    .intro{
+      max-width:620px;
+      color:var(--muted);
+      font-family:Georgia,"Times New Roman",serif;
+      line-height:1.5;
+    }
+    .login{
+      margin-top:24px;
+      padding:16px 0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    label{
+      display:block;
+      margin-bottom:6px;
+      color:var(--muted);
+      font-size:.72rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .row{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    input{
+      flex:1;
+      min-width:0;
+      height:40px;
+      border:1px solid rgba(23,23,23,.35);
+      border-radius:5px;
+      background:rgba(255,255,255,.25);
+      color:var(--ink);
+      padding:0 10px;
+      font:600 .86rem/1.2 Arial,Helvetica,sans-serif;
+    }
+    button{
+      appearance:none;
+      border:1px solid rgba(23,23,23,.42);
+      background:transparent;
+      color:var(--ink);
+      border-radius:999px;
+      min-height:38px;
+      padding:8px 13px;
+      font:800 .73rem/1 Arial,Helvetica,sans-serif;
+      cursor:pointer;
+    }
+    button.primary{
+      border-color:var(--red);
+      color:var(--red);
+    }
+    button:disabled{
+      opacity:.45;
+      cursor:default;
+    }
+    .message{
+      min-height:1.2em;
+      margin-top:9px;
+      color:var(--muted);
+      font-size:.75rem;
+    }
+    .message.error{color:var(--red)}
+    .toolbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:26px 0 8px;
+    }
+    h2{
+      margin:0;
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.35rem;
+    }
+    .list{
+      border-top:2px solid var(--ink);
+    }
+    .card{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:12px;
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .name{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.13rem;
+      font-weight:700;
+    }
+    .meta{
+      margin-top:5px;
+      color:var(--muted);
+      font-size:.76rem;
+      line-height:1.45;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:7px;
+      align-self:start;
+    }
+    .empty{
+      padding:24px 0;
+      color:var(--muted);
+      font-family:Georgia,"Times New Roman",serif;
+    }
+    .security{
+      margin-top:24px;
+      padding-top:14px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:.73rem;
+      line-height:1.5;
+    }
+    @media(max-width:600px){
+      .row{align-items:stretch;flex-direction:column}
+      .row button{align-self:flex-start}
+      .card{grid-template-columns:1fr}
+      .actions{justify-content:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">Weekend Watch</div>
+      <div class="kicker">Private admin</div>
+    </header>
+
+    <h1>Watchlist recovery.</h1>
+    <div class="intro">
+      You cannot see anyone's old sync phrase. If someone forgets it,
+      find their list here and set a new phrase. Saved and Watched titles
+      remain unchanged.
+    </div>
+
+    <section class="login">
+      <label for="adminSecret">Admin secret</label>
+      <div class="row">
+        <input
+          id="adminSecret"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter WATCHLIST_ADMIN_SECRET"
+        >
+        <button class="primary" id="loadLists" type="button">Open admin</button>
+      </div>
+      <div class="message" id="message" aria-live="polite"></div>
+    </section>
+
+    <section id="adminArea" hidden>
+      <div class="toolbar">
+        <h2>Watchlists</h2>
+        <button id="refreshLists" type="button">Refresh</button>
+      </div>
+      <div class="list" id="list"></div>
+
+      <div class="security">
+        The admin secret is kept only in memory in this browser tab.
+        It is not saved to localStorage or embedded in this page.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const API = "/api/admin/watchlists";
+
+      const secretInput = document.getElementById("adminSecret");
+      const loadButton = document.getElementById("loadLists");
+      const refreshButton = document.getElementById("refreshLists");
+      const area = document.getElementById("adminArea");
+      const list = document.getElementById("list");
+      const message = document.getElementById("message");
+
+      let adminSecret = "";
+
+      function setMessage(text = "", error = false) {
+        message.textContent = text;
+        message.classList.toggle("error", Boolean(error));
+      }
+
+      async function api(method = "GET", body = null) {
+        const options = {
+          method,
+          headers: {
+            "X-WW-Admin-Secret": adminSecret,
+            "Accept": "application/json"
+          }
+        };
+
+        if (body !== null) {
+          options.headers["Content-Type"] = "application/json";
+          options.body = JSON.stringify(body);
+        }
+
+        const response = await fetch(API, options);
+
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_) {}
+
+        if (!response.ok) {
+          const error = new Error(
+            data.error || `Request failed (${response.status}).`
+          );
+          error.status = response.status;
+          throw error;
+        }
+
+        return data;
+      }
+
+      function fmtTime(value) {
+        const date = new Date(Number(value || 0));
+        if (Number.isNaN(date.getTime())) return "—";
+        return date.toLocaleString();
+      }
+
+      function makeButton(text, primary = false) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = text;
+        if (primary) button.classList.add("primary");
+        return button;
+      }
+
+      async function resetPhrase(item) {
+        const phrase = prompt(
+          `Set a new sync phrase for "${item.displayName}".\n\nMinimum 8 characters.`
+        );
+
+        if (phrase === null) return;
+
+        if (phrase.trim().length < 8) {
+          setMessage("The new phrase must be at least 8 characters.", true);
+          return;
+        }
+
+        try {
+          setMessage("Resetting phrase…");
+
+          await api("POST", {
+            action: "resetPhrase",
+            listId: item.listId,
+            newPhrase: phrase
+          });
+
+          setMessage(
+            `Phrase reset for ${item.displayName}. Give the user the new phrase.`
+          );
+
+          await loadLists();
+        } catch (error) {
+          setMessage(error.message, true);
+        }
+      }
+
+      async function renameList(item) {
+        const name = prompt(
+          "Rename this list:",
+          item.displayName === "Unnamed list" ? "" : item.displayName
+        );
+
+        if (name === null) return;
+
+        try {
+          setMessage("Renaming…");
+
+          await api("POST", {
+            action: "rename",
+            listId: item.listId,
+            displayName: name
+          });
+
+          setMessage("List renamed.");
+          await loadLists();
+        } catch (error) {
+          setMessage(error.message, true);
+        }
+      }
+
+      function render(lists) {
+        list.replaceChildren();
+
+        if (!lists.length) {
+          const empty = document.createElement("div");
+          empty.className = "empty";
+          empty.textContent = "No watchlists have been created yet.";
+          list.append(empty);
+          return;
+        }
+
+        lists.forEach(item => {
+          const card = document.createElement("article");
+          card.className = "card";
+
+          const info = document.createElement("div");
+
+          const name = document.createElement("div");
+          name.className = "name";
+          name.textContent = item.displayName;
+
+          const meta = document.createElement("div");
+          meta.className = "meta";
+          meta.textContent =
+            `${item.toWatchCount} To Watch · ` +
+            `${item.watchedCount} Watched · ` +
+            `Updated ${fmtTime(item.updatedAt)}`;
+
+          info.append(name, meta);
+
+          const actions = document.createElement("div");
+          actions.className = "actions";
+
+          const reset = makeButton("Reset sync phrase", true);
+          reset.addEventListener("click", () => resetPhrase(item));
+
+          const rename = makeButton("Rename");
+          rename.addEventListener("click", () => renameList(item));
+
+          actions.append(reset, rename);
+          card.append(info, actions);
+          list.append(card);
+        });
+      }
+
+      async function loadLists() {
+        try {
+          setMessage("Loading…");
+
+          const data = await api();
+          render(Array.isArray(data.lists) ? data.lists : []);
+
+          area.hidden = false;
+          setMessage("");
+        } catch (error) {
+          area.hidden = true;
+
+          setMessage(
+            error.status === 401
+              ? "Admin secret is incorrect."
+              : error.message,
+            true
+          );
+        }
+      }
+
+      loadButton.addEventListener("click", async () => {
+        adminSecret = secretInput.value;
+
+        if (!adminSecret) {
+          setMessage("Enter your admin secret.", true);
+          return;
+        }
+
+        // Clear the input after copying the secret into this tab's JS memory.
+        secretInput.value = "";
+
+        await loadLists();
+      });
+
+      refreshButton.addEventListener("click", loadLists);
+
+      secretInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") loadButton.click();
+      });
+    })();
+  </script>
+</body>
+</html>
