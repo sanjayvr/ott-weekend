@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Weekend Watch — Offline</title>
+  <meta name="theme-color" content="#f5f1e8">
+  <style>
+    :root{--paper:#f5f1e8;--ink:#171717;--red:#b52a2a;--muted:#6b675f}
+    *{box-sizing:border-box}
+    body{
+      margin:0;background:var(--paper);color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      min-height:100svh;display:grid;place-items:center;padding:28px
+    }
+    main{width:min(520px,100%);text-align:center}
+    .rule{height:4px;background:var(--red);width:72px;margin:0 auto 26px}
+    h1{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:clamp(2.6rem,12vw,4.6rem);
+      line-height:.92;letter-spacing:-.055em;margin:0
+    }
+    p{
+      font-family:Georgia,"Times New Roman",serif;
+      color:var(--muted);font-size:1.05rem;line-height:1.55;margin:20px auto 0;
+      max-width:430px
+    }
+    button{
+      margin-top:28px;border:1px solid var(--ink);background:transparent;color:var(--ink);
+      font-weight:800;padding:11px 17px;border-radius:999px;cursor:pointer
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="rule"></div>
+    <h1>Weekend<br>Watch</h1>
+    <p>You are offline. Previously viewed Weekend Watch pages may still be available; reconnect to refresh this weekend's releases and posters.</p>
+    <button onclick="location.reload()">Try again</button>
+  </main>
+</body>
+</html>
