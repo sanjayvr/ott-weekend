@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f5f1e8">
-  <title>Weekend OTT — Sep 4–6, 2026</title>
+<title>Weekend Watch — Sep 4–6, 2026</title>
   <meta name="description" content="A verified weekend guide to new Indian and U.S./English OTT movies, shows and new seasons.">
 
   <style>
@@ -243,13 +242,22 @@
     }
 
   </style>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="application-name" content="Weekend Watch">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Weekend Watch">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
 
 </head>
 <body>
   <div class="page">
     <header class="masthead">
       <div class="masthead-row">
-        <div class="brand">Weekend OTT</div>
+        <div class="brand">Weekend Watch</div>
 
         <div class="header-actions" aria-label="Site navigation">
           <a class="nav-link active" href="/">Latest</a>
@@ -270,7 +278,7 @@
       <div class="coverage"><strong>31 verified drops:</strong> 15 Indian · 16 U.S./English · scheduled Sunday premieres included.</div>
     </section>
 
-    <nav class="tabs-wrap" aria-label="Weekend OTT sections">
+    <nav class="tabs-wrap" aria-label="Weekend Watch sections">
       <div class="tabs" role="tablist">
         <button class="tab" type="button" role="tab" id="tab-top" aria-controls="panel-top" aria-selected="true">Top Picks</button>
         <button class="tab" type="button" role="tab" id="tab-india" aria-controls="panel-india" aria-selected="false">Indian</button>
@@ -1078,7 +1086,7 @@
       shareButton.addEventListener('click', async () => {
         const permanentUrl='https://ott.rudraraju.dev/archive/2026-09-04/';
         const data={
-          title:'Weekend OTT — Sep 4–6, 2026',
+          title:'Weekend Watch — Sep 4–6, 2026',
           text:'31 verified OTT drops tracked for the Sep 4 weekend — movies and series only, Indian + U.S./English.',
           url:permanentUrl
         };
@@ -1114,6 +1122,15 @@
         shell.prepend(img);
       });
     })();
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(err => {
+          console.warn("Weekend Watch service worker registration failed:", err);
+        });
+      });
+    }
   </script>
 
 </body>

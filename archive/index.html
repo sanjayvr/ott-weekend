@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f5f1e8">
-  <title>Weekend OTT Archive</title>
+<title>Weekend Watch — Archive</title>
   <style>
     :root{--paper:#f5f1e8;--ink:#171717;--muted:#6b675f;--line:#cfc8bb;--red:#b52a2a;--blue:#275a8a}
     *{box-sizing:border-box}
@@ -31,12 +30,22 @@
     @media(max-width:560px){.edition{grid-template-columns:1fr auto}.date{grid-column:1/-1}}
     @media(max-width:480px){.masthead-row{flex-wrap:wrap}.header-actions{width:100%;justify-content:flex-start}}
   </style>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="application-name" content="Weekend Watch">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Weekend Watch">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+
 </head>
 <body>
   <div class="page">
     <header>
       <div class="masthead-row">
-        <div class="brand">Weekend OTT</div>
+        <div class="brand">Weekend Watch</div>
         <div class="header-actions" aria-label="Site navigation">
           <a class="nav-link" href="/">Latest</a>
           <a class="nav-link active" href="/archive/">Archive</a>
@@ -54,7 +63,7 @@
       <article class="edition">
         <div class="date">Sep 4–6</div>
         <div>
-          <div class="title">Weekend OTT — Sep 4–6, 2026</div>
+          <div class="title">Weekend Watch — Sep 4–6, 2026</div>
           <div class="summary">31 verified drops · 15 Indian + 16 U.S./English · Movies + series only · The Gentlemen S2 · G.D.N. · Mayday · Pagida Kali</div>
         </div>
         <a class="open" href="/archive/2026-09-04/">Open →</a>
@@ -68,7 +77,7 @@
       const archiveUrl='https://ott.rudraraju.dev/archive/';
       function showToast(m){toast.textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1800)}
       shareButton.addEventListener('click',async()=>{
-        const data={title:'Weekend OTT Archive',text:'Browse past Weekend OTT streaming guides.',url:archiveUrl};
+        const data={title:'Weekend Watch Archive',text:'Browse past Weekend Watch guides.',url:archiveUrl};
         try{
           if(navigator.share) await navigator.share(data);
           else if(navigator.clipboard){await navigator.clipboard.writeText(archiveUrl);showToast('Link copied')}
@@ -77,5 +86,15 @@
       });
     })();
   </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(err => {
+          console.warn("Weekend Watch service worker registration failed:", err);
+        });
+      });
+    }
+  </script>
+
 </body>
 </html>
